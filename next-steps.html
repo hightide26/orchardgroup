@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orchard Group × High Tide Marketing — Next Steps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ht-sky: #5bc4e8;
+    --ht-sky-hover: #3fb0d8;
+    --ht-navy: #0d3b52;
+    --ht-navy-deep: #071f2b;
+    --ht-blue: #1a8ab5;
+    --ht-tint-1: #e8f6fd;
+    --ht-tint-2: #d6f4fc;
+    --ht-tint-3: #b8e8f7;
+    --ht-gold: #F0C040;
+    --bg: #ffffff;
+    --surface-soft: #f8fafc;
+    --surface-card: var(--ht-tint-1);
+    --border: #e5ecf1;
+    --text-primary: #0d3b52;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-soft: 0 1px 2px rgba(13, 59, 82, 0.04), 0 2px 8px rgba(13, 59, 82, 0.04);
+    --max-width: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-body);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 16px;
+  }
+  h1 { font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.5rem, 2.6vw, 2.125rem); }
+  h3 { font-size: 1.15rem; font-weight: 600; }
+  p  { margin: 0 0 16px; }
+  a  { color: var(--ht-blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
+  section { padding: 80px 0; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ht-blue);
+    background: var(--ht-tint-1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .section-intro { max-width: 680px; margin-bottom: 56px; }
+  .section-intro p { color: var(--text-muted); font-size: 1.05rem; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-width); margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    color: inherit; text-decoration: none;
+  }
+  .nav-logo:hover { text-decoration: none; }
+  .nav-logo .ht-logo { height: 36px; width: auto; flex-shrink: 0; }
+  .nav-logo-text {
+    font-weight: 800; font-size: 0.95rem;
+    letter-spacing: 0.08em; color: var(--ht-navy); line-height: 1;
+  }
+  .nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    display: inline-block; padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary); font-weight: 500; font-size: 0.95rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .nav-links a:hover { background: var(--ht-tint-1); text-decoration: none; }
+  .nav-links a.active { background: var(--ht-navy); color: #fff; }
+  .nav-cta {
+    display: inline-block;
+    background: var(--ht-sky); color: var(--ht-navy-deep);
+    font-weight: 600; padding: 10px 18px;
+    border-radius: var(--radius-sm); font-size: 0.95rem;
+    transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: var(--ht-sky-hover); text-decoration: none; }
+  @media (max-width: 920px) { .nav-links { display: none; } }
+
+  /* PAGE HEADER */
+  .page-hero {
+    padding: 64px 0 72px;
+    background:
+      radial-gradient(ellipse at top right, var(--ht-tint-2) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, var(--ht-tint-1) 0%, transparent 50%),
+      #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero .section-label { margin-bottom: 16px; }
+  .page-hero p.lead {
+    font-size: 1.1rem; color: var(--text-muted);
+    max-width: 720px; margin: 0;
+  }
+  .breadcrumbs { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px; }
+  .breadcrumbs a { color: var(--text-muted); }
+  .breadcrumbs span { color: var(--ht-navy); font-weight: 500; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block; padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    font-weight: 600; font-size: 0.98rem;
+    cursor: pointer; border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .btn-primary { background: var(--ht-sky); color: var(--ht-navy-deep); }
+  .btn-primary:hover { background: var(--ht-sky-hover); text-decoration: none; }
+  .btn-secondary { background: transparent; color: var(--ht-navy); border-color: var(--border); }
+  .btn-secondary:hover { background: var(--ht-tint-1); border-color: var(--ht-tint-3); text-decoration: none; }
+  .btn-arrow { color: var(--ht-blue); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-arrow:hover { color: var(--ht-navy); text-decoration: none; }
+  .btn-arrow::after { content: '→'; transition: transform 0.15s ease; }
+  .btn-arrow:hover::after { transform: translateX(3px); }
+
+  /* KPI */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .kpi-card {
+    background: var(--surface-card); border-radius: var(--radius-md);
+    padding: 28px 24px; border: 1px solid var(--border);
+  }
+  .kpi-card.light { background: #fff; }
+  .kpi-value {
+    font-size: 2.5rem; font-weight: 800; color: var(--ht-navy);
+    letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px;
+  }
+  .kpi-value .suffix, .kpi-value .prefix { color: var(--ht-blue); }
+  .kpi-label { font-size: 0.92rem; color: var(--text-muted); font-weight: 500; }
+  .kpi-delta {
+    display: inline-block; margin-top: 10px;
+    font-size: 0.82rem; font-weight: 600;
+    padding: 3px 8px; border-radius: 999px;
+    background: #e6f7ef; color: #0f7a4e;
+  }
+  .kpi-delta.down { background: #fdecec; color: #b4312a; }
+  @media (max-width: 820px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* FEATURE CARDS */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 32px 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); border-color: var(--ht-tint-3); }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--ht-tint-1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; font-size: 1.25rem; color: var(--ht-blue);
+  }
+  .feature-card h3 { margin-bottom: 10px; }
+  .feature-card p { color: var(--text-muted); font-size: 0.96rem; margin-bottom: 16px; }
+  @media (max-width: 820px) { .feature-grid { grid-template-columns: 1fr; } }
+
+  /* SPLIT */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .split.reverse .split-media { order: 2; }
+  .split-media {
+    background: linear-gradient(135deg, var(--ht-tint-2) 0%, var(--ht-tint-1) 100%);
+    aspect-ratio: 4 / 3; border-radius: var(--radius-lg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ht-blue); font-weight: 500;
+  }
+  .split-text h2 { margin-bottom: 20px; }
+  .split-text p { color: var(--text-muted); margin-bottom: 20px; }
+  .split-text ul { padding-left: 20px; color: var(--text-body); }
+  .split-text ul li { margin-bottom: 8px; }
+  @media (max-width: 820px) {
+    .split { grid-template-columns: 1fr; gap: 32px; }
+    .split.reverse .split-media { order: 0; }
+  }
+
+  /* BEFORE/AFTER */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .ba-card { border-radius: var(--radius-md); padding: 32px; border: 1px solid var(--border); }
+  .ba-card.before { background: #f8fafc; }
+  .ba-card.after { background: var(--ht-tint-1); border-color: var(--ht-tint-3); }
+  .ba-tag {
+    display: inline-block; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .ba-card.before .ba-tag { background: #fff; color: var(--text-muted); border: 1px solid var(--border); }
+  .ba-card.after .ba-tag { background: var(--ht-navy); color: #fff; }
+  .ba-metric {
+    font-size: 2.2rem; font-weight: 800; color: var(--ht-navy);
+    margin: 10px 0 6px; line-height: 1;
+  }
+  .ba-card p { color: var(--text-muted); margin: 0; }
+  @media (max-width: 820px) { .ba-grid { grid-template-columns: 1fr; } }
+
+  /* TABS */
+  .tabs { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+  .tab-buttons { display: flex; border-bottom: 1px solid var(--border); background: var(--surface-soft); overflow-x: auto; }
+  .tab-btn {
+    flex: 1; min-width: 120px; padding: 16px 20px;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    font-family: inherit; font-size: 0.95rem; font-weight: 500;
+    color: var(--text-muted); cursor: pointer;
+    transition: all 0.15s ease; white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--ht-navy); }
+  .tab-btn.active {
+    color: var(--ht-navy); border-bottom-color: var(--ht-sky);
+    background: #fff; font-weight: 600;
+  }
+  .tab-panel { padding: 36px; display: none; }
+  .tab-panel.active { display: block; }
+  .tab-panel h3 { margin-bottom: 12px; }
+  .tab-panel p { color: var(--text-muted); }
+
+  /* ACCORDION */
+  .accordion { display: flex; flex-direction: column; gap: 12px; }
+  .acc-item {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius-md); overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .acc-item.open { border-color: var(--ht-tint-3); }
+  .acc-header {
+    width: 100%; padding: 20px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 1.02rem; font-weight: 600;
+    color: var(--text-primary); text-align: left;
+  }
+  .acc-icon {
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ht-blue); font-size: 1.4rem; font-weight: 400;
+    transition: transform 0.2s ease; flex-shrink: 0;
+  }
+  .acc-item.open .acc-icon { transform: rotate(45deg); }
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+  .acc-body-inner { padding: 0 24px 20px; color: var(--text-muted); }
+
+  /* TABLE */
+  .table-toolbar { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+  .table-search {
+    flex: 1; min-width: 220px; padding: 10px 14px;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 0.95rem;
+    background: #fff; color: var(--text-primary);
+    transition: border-color 0.15s ease;
+  }
+  .table-search:focus {
+    outline: none; border-color: var(--ht-sky);
+    box-shadow: 0 0 0 3px var(--ht-tint-2);
+  }
+  .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--border); background: #fff;
+    font-family: inherit; font-size: 0.88rem; font-weight: 500;
+    color: var(--text-muted); cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .chip:hover { color: var(--text-primary); }
+  .chip.active { background: var(--ht-navy); color: #fff; border-color: var(--ht-navy); }
+  .data-table-wrap { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; background: #fff; }
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+  .data-table th, .data-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+  .data-table th {
+    background: var(--surface-soft); color: var(--text-primary);
+    font-weight: 600; font-size: 0.82rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover { background: var(--ht-tint-1); }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+  .pill-green { background: #e6f7ef; color: #0f7a4e; }
+  .pill-gold  { background: #fef5dd; color: #8a6300; }
+  .pill-blue  { background: var(--ht-tint-1); color: var(--ht-blue); }
+  .pill-red   { background: #fdecec; color: #b4312a; }
+
+  /* CHART */
+  .chart-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 32px; }
+  .chart-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+  .chart-head h3 { margin: 0; }
+  .chart-legend { display: flex; gap: 16px; font-size: 0.88rem; color: var(--text-muted); }
+  .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+  .bar-chart { display: grid; gap: 20px; height: 260px; align-items: end; padding: 12px 0 0; border-bottom: 1px solid var(--border); }
+  .bar-col { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+  .bar-pair { display: flex; gap: 4px; align-items: flex-end; width: 100%; height: 100%; }
+  .bar {
+    flex: 1; border-radius: 4px 4px 0 0;
+    background: var(--ht-tint-3);
+    transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 0;
+  }
+  .bar.primary { background: var(--ht-sky); }
+  .bar.secondary { background: var(--ht-navy); }
+  .chart-labels { display: grid; gap: 20px; padding-top: 10px; }
+  .chart-labels div { text-align: center; font-size: 0.82rem; color: var(--text-muted); }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 10px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; padding-bottom: 28px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute; left: -26px; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--ht-sky); border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--ht-tint-3);
+  }
+  .timeline-item h4 { font-size: 1.02rem; margin-bottom: 4px; color: var(--text-primary); }
+  .timeline-item .timeline-meta {
+    font-size: 0.82rem; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 6px; font-weight: 600;
+  }
+  .timeline-item p { color: var(--text-muted); margin: 0; }
+
+  /* VIDEO STRATEGY */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) { .vs-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .vs-grid { grid-template-columns: 1fr; } }
+  .vs-card {
+    background: #13181f;
+    border: 1px solid #1e2535;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .vs-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #000;
+    overflow: hidden;
+    max-height: 320px;
+  }
+  .vs-video-wrap video { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .vs-meta {
+    padding: 14px 16px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .vs-venue {
+    font-size: 0.92rem; font-weight: 700; color: #fff;
+    line-height: 1.3;
+  }
+  .vs-duration {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 600;
+    padding: 3px 10px; border-radius: 99px;
+    letter-spacing: 0.04em;
+  }
+  .vs-channels {
+    display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px;
+  }
+  .vs-ch-tag {
+    font-size: 0.7rem; font-weight: 500;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(91,196,232,0.1); color: #5bc4e8;
+    border: 1px solid rgba(91,196,232,0.2);
+  }
+  .vs-legend {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    margin-top: 24px; justify-content: center;
+  }
+  .vs-legend-item {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.65);
+  }
+  .vs-legend-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, var(--ht-navy) 0%, var(--ht-navy-deep) 100%);
+    border-radius: var(--radius-lg); padding: 64px 48px;
+    text-align: center; color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .cta-block::before {
+    content: ''; position: absolute; top: -40%; right: -10%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, var(--ht-sky) 0%, transparent 70%);
+    opacity: 0.2;
+  }
+  .cta-block h2 { color: #fff; margin-bottom: 14px; position: relative; }
+  .cta-block p {
+    color: rgba(255, 255, 255, 0.78); font-size: 1.1rem;
+    max-width: 560px; margin: 0 auto 28px; position: relative;
+  }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .cta-block .btn-secondary {
+    background: transparent; color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+  .cta-block .btn-secondary:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.4); }
+
+  /* PAGE NAV */
+  .page-nav {
+    display: flex; justify-content: space-between; gap: 16px;
+    margin: 40px 0 0; padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .page-nav a {
+    display: flex; flex-direction: column;
+    padding: 16px 24px; border-radius: var(--radius-md);
+    border: 1px solid var(--border); background: #fff;
+    min-width: 180px; color: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .page-nav a:hover { border-color: var(--ht-tint-3); background: var(--ht-tint-1); text-decoration: none; }
+  .page-nav a.next { text-align: right; align-items: flex-end; }
+  .page-nav .pn-label { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .page-nav .pn-title { font-weight: 600; color: var(--ht-navy); font-size: 1rem; margin-top: 4px; }
+  .page-nav .spacer { flex: 1; }
+  @media (max-width: 820px) { .page-nav a { min-width: 0; flex: 1; } }
+
+  /* ACTION TABLES */
+  .action-table-wrap {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: #fff;
+  }
+  .action-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.93rem;
+  }
+  .action-table thead tr {
+    background: var(--ht-navy);
+  }
+  .action-table thead th {
+    padding: 13px 18px;
+    text-align: left; font-weight: 600;
+    font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+  }
+  .action-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.12s;
+  }
+  .action-table tbody tr:last-child { border-bottom: none; }
+  .action-table tbody tr:hover { background: var(--surface-soft); }
+  .dark-table .action-table tbody tr:hover { background: rgba(255,255,255,0.05); }
+  .dark-table .action-table tbody tr { border-bottom-color: rgba(255,255,255,0.07); }
+  .action-table td { padding: 18px 18px; vertical-align: top; }
+  .at-num {
+    font-weight: 800; font-size: 1rem;
+    color: var(--ht-tint-3); text-align: center;
+    padding-top: 20px;
+  }
+  .at-title {
+    font-weight: 700; color: var(--text-primary);
+    font-size: 0.95rem; padding-top: 19px;
+    line-height: 1.3;
+  }
+  .at-desc { color: var(--text-muted); line-height: 1.65; }
+  .at-desc p { margin: 0; }
+  .at-owner { padding-top: 20px; }
+  .owner-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 600;
+    padding: 4px 11px; border-radius: 999px; white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .owner-internal { background: var(--ht-tint-1); color: var(--ht-blue); border: 1px solid var(--ht-tint-3); }
+  .owner-vendor { background: rgba(240,192,64,0.12); color: #92700a; border: 1px solid rgba(240,192,64,0.3); }
+  .owner-marketing { background: rgba(91,196,232,0.1); color: var(--ht-navy); border: 1px solid rgba(91,196,232,0.25); }
+  @media (max-width: 820px) {
+    .action-table thead th:nth-child(4),
+    .action-table tbody td:nth-child(4) { display: none; }
+  }
+  @media (max-width: 600px) {
+    .action-table thead th:nth-child(1),
+    .action-table tbody td:nth-child(1) { display: none; }
+  }
+
+  /* FOOTER */
+  footer { background: var(--surface-soft); border-top: 1px solid var(--border); padding: 36px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+  .footer-brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 12px; font-weight: 800;
+    letter-spacing: 0.08em; color: var(--ht-navy); font-size: 0.9rem;
+  }
+  .footer-brand .ht-logo { height: 24px; }
+</style>
+</head>
+<body>
+
+<!-- ========= NAV ========= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">
+      <img src="/Users/chantzyager/Library/CloudStorage/GoogleDrive-chantz@hightidemarketing.com/.shortcut-targets-by-id/1ZST_lLI4pUxDsP56QU2gFwNVhmOb4gxc/High Tide Marketing/HTM-2.svg" class="ht-logo" alt="High Tide Marketing">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Introduction</a></li>
+      <li><a href="what-we-know.html">What We Know</a></li>
+      <li><a href="top-of-funnel.html">Top of Funnel</a></li>
+      <li><a href="middle-funnel.html">Middle Funnel</a></li>
+      <li><a href="bottom-funnel.html">Bottom Funnel</a></li>
+      <li><a href="next-steps.html" class="active">Next Steps</a></li>
+      <li><a href="competitor.html">Competitors</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========= PAGE HERO ========= -->
+<header class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Introduction</a> / <span>Next Steps</span></div>
+    <span class="section-label">05 — Action Plan</span>
+    <h1>Immediate Action Items.</h1>
+    <p class="lead">A prioritized list of recommendations for Orchard Group — some to handle internally, some to take back to existing vendors, and some to begin scoping now for the rest of 2026.</p>
+  </div>
+</header>
+
+<!-- ========= ACTION TABLES ========= -->
+<section>
+  <div class="container">
+
+    <!-- START NOW -->
+    <div class="section-intro">
+      <span class="section-label">Start Now</span>
+      <h2>Foundation items — do these first.</h2>
+      <p>These have the highest leverage and the lowest barrier. Nothing else performs at full capacity until these are handled.</p>
+    </div>
+
+    <div class="action-table-wrap" style="margin-bottom: 64px;">
+      <table class="action-table">
+        <thead>
+          <tr>
+            <th style="width:36px;">#</th>
+            <th style="width:220px;">Action Item</th>
+            <th>What to Do</th>
+            <th style="width:140px;">Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="at-num">1</td>
+            <td class="at-title">Website Audit</td>
+            <td class="at-desc">Walk through both venue sites as if you're a bride seeing them for the first time. Flag slow load times, buried inquiry forms, missing calls-to-action, and any page that doesn't immediately communicate what makes each venue worth booking. Fix the quick wins now and prioritize anything bigger for a dedicated sprint.</td>
+            <td class="at-owner"><span class="owner-tag owner-internal">Internal</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">2</td>
+            <td class="at-title">SEO Vendor Brief</td>
+            <td class="at-desc">Take a clear brief back to your SEO vendor: identify the specific pages you want to rank, the geographic search terms that matter (Savannah wedding venue, Lowcountry wedding venue, etc.), and the backlink targets that would move the needle. Hold them to ranking outcomes, not just activity reports. Local citations and Google Business Profile completeness should be audited immediately.</td>
+            <td class="at-owner"><span class="owner-tag owner-vendor">SEO Vendor</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">3</td>
+            <td class="at-title">Google Reviews — Hard Push</td>
+            <td class="at-desc">Both venues are underindexed on review count relative to their booking volume. Build a structured outreach sequence targeting past couples, preferred vendors, and recent inquiries — not a one-time ask, a three-touch follow-up. Reviews compound over time; every week without a new one is a gap a competitor is filling. Set a weekly review goal and track it.</td>
+            <td class="at-owner"><span class="owner-tag owner-internal">Internal</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">4</td>
+            <td class="at-title">Email &amp; SMS Audit</td>
+            <td class="at-desc">Pull every automated sequence and read it from the lead's perspective. The inquiry response time, the follow-up cadence, and the tour reminder sequence should all be tightened. A lead that doesn't respond within 48 hours should receive a text. Most venues let that window close — it's one of the easiest conversions to recover.</td>
+            <td class="at-owner"><span class="owner-tag owner-internal">Internal</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BUILD TOWARD -->
+    <div class="section-intro">
+      <span class="section-label">Build Toward</span>
+      <h2>Strategic priorities for the rest of 2026.</h2>
+      <p>These require more planning and coordination but represent the largest growth opportunities for both venues and the third location on deck.</p>
+    </div>
+
+    <div class="action-table-wrap">
+      <table class="action-table">
+        <thead>
+          <tr>
+            <th style="width:36px;">#</th>
+            <th style="width:220px;">Action Item</th>
+            <th>Recommendation</th>
+            <th style="width:140px;">Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="at-num">5</td>
+            <td class="at-title">Budget Alignment</td>
+            <td class="at-desc">Look at your remaining capacity for 2026 and your revenue target for December. That number should be driving your marketing budget — not the other way around. If dates are full, the focus shifts to positioning and price. If there are dates to fill, the spend needs to reflect the urgency.</td>
+            <td class="at-owner"><span class="owner-tag owner-internal">Internal</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">6</td>
+            <td class="at-title">Social Media — Both Venues</td>
+            <td class="at-desc">Chateau 1800 and Chapel by the Sea need separate voices and separate content strategies. High volume, high consistency, Reels-first on Instagram. Each venue should be posting at minimum 4–5 times per week. Bri Rosa and Sha-Real Nix — both named in 5-star reviews — are natural on-camera talent worth activating.</td>
+            <td class="at-owner"><span class="owner-tag owner-marketing">Marketing</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">7</td>
+            <td class="at-title">Document Venue #3</td>
+            <td class="at-desc">The closing and buildout of the third Savannah venue is a content opportunity most operators ignore. Document the walkthrough, the renovation decisions, the before-and-after — and turn it into a running series. You can build an audience for a venue before it has a single booking.</td>
+            <td class="at-owner"><span class="owner-tag owner-internal">Internal</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">8</td>
+            <td class="at-title">Facebook Ads</td>
+            <td class="at-desc">Three audience layers to run simultaneously: cold awareness targeting engaged couples in GA/SC/FL and broader across the South, retargeting for website visitors who didn't inquire, and a warm look-alike audience built from past bookers. Every campaign should be tracked to inquiry, not just impression or click.</td>
+            <td class="at-owner"><span class="owner-tag owner-marketing">Marketing</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">9</td>
+            <td class="at-title">Lead Magnets</td>
+            <td class="at-desc">Create two to three downloadable assets — a Lowcountry wedding venue comparison guide, a wedding day timeline template, a real wedding cost breakdown — and gate them behind an email capture. Every download becomes a retargetable lead for ads and a subscriber for email nurture. These pull in prospects who aren't ready to inquire yet.</td>
+            <td class="at-owner"><span class="owner-tag owner-marketing">Marketing</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">10</td>
+            <td class="at-title">Video-First Content Series</td>
+            <td class="at-desc">Build a structured video series that answers every question a bride and her family ask before booking a tour: ceremony spaces, getting-ready rooms, cocktail hour setup, catering, parking, lighting at different times of day. This content handles objections before the tour happens and positions the venue as the most transparent option in the market.</td>
+            <td class="at-owner"><span class="owner-tag owner-marketing">Marketing</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">11</td>
+            <td class="at-title">Content Pillars &amp; TikTok</td>
+            <td class="at-desc">Define four to five content pillars per venue — real weddings, behind the scenes, bride education, venue features, team and culture — so every piece of content has a home and a purpose. Launch TikTok for both venues. The algorithm still rewards new accounts and the audience skews toward younger brides in the planning phase.</td>
+            <td class="at-owner"><span class="owner-tag owner-marketing">Marketing</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">12</td>
+            <td class="at-title">Backlink Strategy</td>
+            <td class="at-desc">Identify the pages you want to rank — both venue pages, a Savannah wedding venue guide, a Lowcountry wedding page — and build a targeted backlink strategy around them. Local wedding blogs, vendor directories, and regional lifestyle publications are the right targets. Push this brief to your SEO vendor with specific page-level goals.</td>
+            <td class="at-owner"><span class="owner-tag owner-vendor">SEO Vendor</span></td>
+          </tr>
+          <tr>
+            <td class="at-num">13</td>
+            <td class="at-title">Vendor Partnership Program</td>
+            <td class="at-desc">The photographers and videographers shooting weddings at both venues are producing polished content every weekend. Formalize the relationship — a cross-promotion agreement where you feature and promote their work across your channels, and they credit and tag both venues. Everyone benefits, and you create a consistent stream of high-quality content without producing all of it yourself.</td>
+            <td class="at-owner"><span class="owner-tag owner-internal">Internal</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= SEO TABLES ========= -->
+<section style="background: var(--ht-navy-deep);">
+  <div class="container">
+
+    <div class="section-intro" style="color:#fff;">
+      <span class="section-label" style="color:var(--ht-sky);">SEO — Ahrefs Data · April 2026</span>
+      <h2 style="color:#fff;">Where to focus the backlink budget.</h2>
+      <p style="color:rgba(255,255,255,0.7);">Pulled directly from Ahrefs. Chateau 1800 has 169 referring domains and Chapel by the Sea has 394. Both sites have existing pages ranking on page one that have zero backlinks pointing at them — those are the fastest wins. Below that is a list of pages that don't exist yet but have clear keyword demand.</p>
+    </div>
+
+    <!-- BACKLINKS TABLE -->
+    <div style="margin-bottom: 16px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ht-sky);">Existing Pages — Add Backlinks</span>
+        <span style="height:1px;flex:1;background:rgba(91,196,232,0.2);"></span>
+      </div>
+    </div>
+    <div class="action-table-wrap dark-table" style="background:#0d2030;border-color:rgba(91,196,232,0.15);margin-bottom:48px;">
+      <table class="action-table" style="font-size:0.88rem;">
+        <thead>
+          <tr style="background:#071f2b;">
+            <th>Venue</th>
+            <th>Page</th>
+            <th>Target Keyword</th>
+            <th style="width:70px;text-align:center;">Vol</th>
+            <th style="width:60px;text-align:center;">Pos</th>
+            <th style="width:60px;text-align:center;">KD</th>
+            <th style="width:60px;text-align:center;">Ref Domains</th>
+            <th>Priority Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td><a href="https://chateau1800.com/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">Homepage</a></td>
+            <td style="color:#e2e8f0;">savannah wedding venues</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">600</td>
+            <td style="text-align:center;color:#f97316;font-weight:700;">6</td>
+            <td style="text-align:center;color:#94a3b8;">22</td>
+            <td style="text-align:center;color:#f97316;font-weight:700;">167</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Highest priority. Sitting at pos 6 with 167 RDs — 10–15 high-authority local or wedding-directory links could move this to top 3 and double organic traffic.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td><a href="https://chateau1800.com/destination-wedding-venue-near-savannah/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/destination-wedding-venue-near-savannah/</a></td>
+            <td style="color:#e2e8f0;">destination wedding locations savannah</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">20</td>
+            <td style="text-align:center;color:#34d399;font-weight:700;">4</td>
+            <td style="text-align:center;color:#94a3b8;">0</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Position 4 with zero backlinks. Even 3–5 targeted links should push this to top 3. Easy win — low KD, already indexed and ranking.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td><a href="https://chateau1800.com/outdoor-wedding-near-savannah/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/outdoor-wedding-near-savannah/</a></td>
+            <td style="color:#e2e8f0;">outdoor wedding venues savannah ga</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">90</td>
+            <td style="text-align:center;color:#f97316;font-weight:700;">10</td>
+            <td style="text-align:center;color:#94a3b8;">8</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">At position 10 with zero backlinks and 90 monthly searches. Page likely needs a content update alongside link building to move into page one solidly.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td><a href="https://chateau1800.com/financing-options/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/financing-options/</a></td>
+            <td style="color:#e2e8f0;">wedding venues with payment plans</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">20</td>
+            <td style="text-align:center;color:#34d399;font-weight:700;">6</td>
+            <td style="text-align:center;color:#94a3b8;">0</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Unique differentiator — most venues don't have a financing page. Zero competition (KD 0), zero backlinks, already ranking. A handful of links closes this out.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td><a href="https://chateau1800.com/wedding-pricing/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/wedding-pricing/</a></td>
+            <td style="color:#e2e8f0;">wedding packages savannah</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">40</td>
+            <td style="text-align:center;color:#f97316;font-weight:700;">7</td>
+            <td style="text-align:center;color:#94a3b8;">4</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">1</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">High commercial intent — people searching this are ready to book. Only 1 referring domain. Should be one of the most linked pages on the site.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td><a href="https://chateau1800.com/small-wedding-reception-venues-near-savannah/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/small-wedding-reception-venues-near-savannah/</a></td>
+            <td style="color:#e2e8f0;">alternative wedding venues savannah</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">20</td>
+            <td style="text-align:center;color:#f97316;font-weight:700;">11</td>
+            <td style="text-align:center;color:#94a3b8;">0</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Just off page one. Zero backlinks, zero KD — should be straightforward to move with a small push. Content may need to be expanded.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td><a href="https://tybeeweddingchapel.com/all-inclusive-package/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/all-inclusive-package/</a></td>
+            <td style="color:#e2e8f0;">savannah beach wedding packages</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">30</td>
+            <td style="text-align:center;color:#34d399;font-weight:700;">3</td>
+            <td style="text-align:center;color:#94a3b8;">0</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Position 3 with zero backlinks and KD of 0. Also ranks position 5 for "tybee island beach wedding packages." A few links from local wedding blogs or directories could push this to #1.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td><a href="https://tybeeweddingchapel.com/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">Homepage</a></td>
+            <td style="color:#e2e8f0;">savannah wedding venues</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">600</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">20</td>
+            <td style="text-align:center;color:#94a3b8;">22</td>
+            <td style="text-align:center;color:#34d399;font-weight:700;">394</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">394 RDs and still only pos 20 for "savannah wedding venues" — the page may not be sufficiently optimized for this term. Needs both on-page work and Savannah-specific link sources.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td><a href="https://tybeeweddingchapel.com/how-to-pick-your-wedding-aesthetic/" target="_blank" style="color:#94a3b8;font-size:0.82rem;">/how-to-pick-your-wedding-aesthetic/</a></td>
+            <td style="color:#e2e8f0;">wedding aesthetic</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">2,200</td>
+            <td style="text-align:center;color:#f97316;font-weight:700;">12</td>
+            <td style="text-align:center;color:#94a3b8;">32</td>
+            <td style="text-align:center;color:#ef4444;font-weight:700;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Highest volume keyword in the entire portfolio (2,200/mo). Already ranking position 12 with zero backlinks. KD 32 is the highest on this list — but the traffic reward for getting into top 5 is significant.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CREATE PAGES TABLE -->
+    <div style="margin-bottom: 16px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ht-sky);">Pages That Should Be Created</span>
+        <span style="height:1px;flex:1;background:rgba(91,196,232,0.2);"></span>
+      </div>
+    </div>
+    <div class="action-table-wrap dark-table" style="background:#0d2030;border-color:rgba(91,196,232,0.15);">
+      <table class="action-table" style="font-size:0.88rem;">
+        <thead>
+          <tr style="background:#071f2b;">
+            <th>Venue</th>
+            <th>Suggested Page</th>
+            <th>Target Keyword(s)</th>
+            <th style="width:70px;text-align:center;">Vol</th>
+            <th style="width:60px;text-align:center;">KD</th>
+            <th>Why It Matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td style="color:#e2e8f0;font-weight:600;">Wedding Reception Venue Page</td>
+            <td style="color:#94a3b8;">wedding reception venues savannah ga</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">100</td>
+            <td style="text-align:center;color:#94a3b8;">5</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Homepage is ranking for this at position 8 — a dedicated reception page with proper on-page optimization and a few backlinks would outrank the homepage itself and capture this term cleanly.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td style="color:#e2e8f0;font-weight:600;">Elopement Packages Page</td>
+            <td style="color:#94a3b8;">elopement packages savannah, elopement savannah ga</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">~150</td>
+            <td style="text-align:center;color:#94a3b8;">low</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Not ranking for elopement terms at all. High buyer intent, low competition in the local market, and an obvious upsell path to a full reception at the same property. Missing page entirely.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td style="color:#e2e8f0;font-weight:600;">All-Inclusive Packages Page</td>
+            <td style="color:#94a3b8;">all inclusive wedding venues savannah, wedding packages savannah ga</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">~150</td>
+            <td style="text-align:center;color:#94a3b8;">low</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Current /all-inclusive/ page has zero backlinks and zero traffic. Needs a full rewrite targeting "all inclusive wedding venues savannah ga" with proper pricing, inclusions, and CTAs.</td>
+          </tr>
+          <tr>
+            <td style="color:#5bc4e8;font-weight:600;white-space:nowrap;">Chateau 1800</td>
+            <td style="color:#e2e8f0;font-weight:600;">Savannah Wedding Venue Guide (Blog)</td>
+            <td style="color:#94a3b8;">savannah wedding venues, best wedding venues savannah</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">600</td>
+            <td style="text-align:center;color:#94a3b8;">22</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">A long-form guide comparing Savannah wedding venues — including Chateau 1800 — earns links naturally from wedding blogs and planners, and can rank alongside the homepage for the primary keyword cluster.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td style="color:#e2e8f0;font-weight:600;">All-Inclusive Weddings Georgia Page</td>
+            <td style="color:#94a3b8;">all inclusive weddings georgia, all inclusive wedding packages georgia</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">200</td>
+            <td style="text-align:center;color:#94a3b8;">0</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Currently ranking position 50 for this term — essentially invisible. KD is 0. A dedicated, well-structured page targeting this term with backlinks should rank quickly. 200 monthly searches, all commercial intent.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td style="color:#e2e8f0;font-weight:600;">Beach Wedding Venues Georgia Page</td>
+            <td style="color:#94a3b8;">beach wedding venues georgia, georgia beach wedding</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">~200</td>
+            <td style="text-align:center;color:#94a3b8;">low</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">Not ranking for this at all. Chapel by the Sea is literally a beach wedding venue in Georgia — this page should exist and should be one of the top results for this term.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td style="color:#e2e8f0;font-weight:600;">Elopement Packages Tybee Island</td>
+            <td style="color:#94a3b8;">tybee island elopement, elopement packages tybee island</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">~100</td>
+            <td style="text-align:center;color:#94a3b8;">low</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">High intent, clear commercial search, and the venue is perfectly positioned to rank for it. Not currently ranking for any elopement terms. Should be paired with the all-inclusive package page.</td>
+          </tr>
+          <tr>
+            <td style="color:#F0C040;font-weight:600;white-space:nowrap;">Chapel by the Sea</td>
+            <td style="color:#e2e8f0;font-weight:600;">Lowcountry Wedding Venue Guide</td>
+            <td style="color:#94a3b8;">lowcountry wedding venues, lowcountry wedding</td>
+            <td style="text-align:center;color:#fbbf24;font-weight:700;">~150</td>
+            <td style="text-align:center;color:#94a3b8;">low</td>
+            <td style="color:rgba(255,255,255,0.6);font-size:0.82rem;">A geographic expansion term that neither venue is targeting. A Lowcountry wedding guide positions Chapel by the Sea as the authority for the broader coastal Georgia/South Carolina market, not just Tybee Island.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= VIDEO STRATEGY ========= -->
+<section style="background: var(--ht-navy-deep);">
+  <div class="container">
+    <div class="section-intro" style="color:#fff;">
+      <span class="section-label" style="color:var(--ht-sky);">Competitive Intelligence</span>
+      <h2 style="color:#fff;">Who's already running video ads — and for how long.</h2>
+      <p style="color:rgba(255,255,255,0.7);">These are active Meta video ads from competing wedding venues right now. Duration is how long they've been running the same creative — a proxy for what's working. Orchard Group is not in this list yet.</p>
+    </div>
+
+    <div class="vs-grid">
+
+      <!-- 1. Bella Terra Venue -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video-sea5-1.xx.fbcdn.net/o1/v/t2/f2/m69/AQM0dQIGhK5mAf1Wl8p25bC8sk0s4wcjpd4JshlvCTq86HmsOzzSXLlmZ5ehpLZTZJ1oeRlsAi2ElrmQ5n-UW6Pu.mp4?strext=1&_nc_cat=110&_nc_sid=8bf8fe&_nc_ht=video-sea5-1.xx.fbcdn.net&_nc_ohc=PUa01r1JUIgQ7kNvwECbLU8&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMTI4MC5hc2ljX2hxMl9oZF9wcm9ncmVzc2l2ZSIsInhwdl9hc3NldF9pZCI6MTE1ODk4NTM1Mjk3NjA0MCwiYXNzZXRfYWdlX2RheXMiOjg3LCJ2aV91c2VjYXNlX2lkIjoxMDY4MCwiZHVyYXRpb25fcyI6MTI1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=YTLk3PnnxpGEjxS5dW8EhQ&_nc_ss=7a389&_nc_zt=28&oh=00_Af3qQOZAwnajRwrvMFbZFRXwvM_bfv0ttieqjQzwm9jI-g&oe=69EC1750" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">Bella Terra Venue</div>
+          <span class="vs-duration" style="background:rgba(249,115,22,0.15);color:#f97316;border:1px solid rgba(249,115,22,0.3);">Running 3y 1m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Messenger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. The Pinery events -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video.fhio3-1.fna.fbcdn.net/o1/v/t2/f2/m69/AQP2r4DxFrtCQ8EV4ZeKUwbHTdH7xnRYAld_mod3O4kDO1BJhAC0Pcwuziz5MLb25HU0ByycGc7AdtaNNyGq8oDf.mp4?strext=1&_nc_cat=108&_nc_oc=AdoqQOKK36KY0HktDvWJB_Mw5ZHGxJXC8kq1Bbio5hko0R_Zx751aHtyXN7GsgN1-TY&_nc_sid=8bf8fe&_nc_ht=video.fhio3-1.fna.fbcdn.net&_nc_ohc=8XFGo6tarRgQ7kNvwEscSu8&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmFzaWNfaHEyX2hkX3Byb2dyZXNzaXZlIiwieHB2X2Fzc2V0X2lkIjoxOTY4ODE4OTUwNTExMzI5LCJhc3NldF9hZ2VfZGF5cyI6MTY5LCJ2aV91c2VjYXNlX2lkIjoxMDY4MCwiZHVyYXRpb25fcyI6MzMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=ckdjB5_hbtt9vcweBtmOyQ&_nc_ss=7a389&_nc_zt=28&oh=00_Af1lRQG63jfol_SZ5TRyVsbIKwqQIJPcGgBXUOjaFNB_lQ&oe=69EC33D2" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">The Pinery events</div>
+          <span class="vs-duration" style="background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3);">Running 1y 8m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Messenger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. The Views at Sunset Ridge -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video-dfw5-1.xx.fbcdn.net/v/t42.1790-2/458776232_2456996017820206_2100114133267163427_n.?_nc_cat=109&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=_T9vIM9XNowQ7kNvwFMTHL_&_nc_oc=AdojJkAOiH-Ny1vHdDHqlKODEgiA5bC3gSR5ge4_JqozvhOxNdaIku8jVQp_tRNOZ9A&_nc_zt=28&_nc_ht=video-dfw5-1.xx&_nc_gid=b9mgX3pu-Kdhkcuc5Xk98g&_nc_ss=7a389&oh=00_Af1-VTUKCFMzuMtQSWVK9V8ukzyCMCiPAfM00IHG4dRcSQ&oe=69EC1EDF" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">The Views at Sunset Ridge</div>
+          <span class="vs-duration" style="background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3);">Running 1y 4m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. The Oaks at High Hill Venue -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video-phx1-1.xx.fbcdn.net/o1/v/t2/f2/m69/AQNqo1ZbtpyzMGGCuaXKKbWc56ic5AGZWGBcZru8VcOAl5MZjcc3QGljrVRaei3O9A5R4N_CDLS3h1XpMYQdXuGT.mp4?strext=1&_nc_cat=110&_nc_sid=8bf8fe&_nc_ht=video-phx1-1.xx.fbcdn.net&_nc_ohc=LUE5kZ9t2GAQ7kNvwE4Dit1&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMTI4MC5hc2ljX2hxMl9oZF9wcm9ncmVzc2l2ZSIsInhwdl9hc3NldF9pZCI6ODEwNzg4MTg4NzM4OTk3LCJhc3NldF9hZ2VfZGF5cyI6MTUsInZpX3VzZWNhc2VfaWQiOjEwNjgwLCJkdXJhdGlvbl9zIjoxMjMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=ah_aRqTP6gZzQRK9ZS-amA&_nc_ss=7a389&_nc_zt=28&oh=00_Af0NBCMQmY9A83jEiMQkJqXGKMy_9-z4p5zhiDpVuqiWCA&oe=69EC36BC" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">The Oaks at High Hill Venue</div>
+          <span class="vs-duration" style="background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);">Running 12m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Messenger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Bavaro's -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video.fhio3-1.fna.fbcdn.net/o1/v/t2/f2/m69/AQM78gRYgLWWqrIUwl7ZiTQmMMwuByhGtZWcQ0g6zjH3EPgRWqWDBLYPhlH9fMMoXDTc4VQhOyNpUTA8dXfPNJoc.mp4?strext=1&_nc_cat=105&_nc_oc=Adrdb6fmc7SS8TXARdQktVsOw-eHGlr7ILh8yZ246XIn9dGuqYWTMJ4qfTdbqVF0giY&_nc_sid=8bf8fe&_nc_ht=video.fhio3-1.fna.fbcdn.net&_nc_ohc=GuLJ7puhCRYQ7kNvwE3gQpm&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmFzaWNfaHEyX2hkX3Byb2dyZXNzaXZlIiwieHB2X2Fzc2V0X2lkIjoxNDE1MDI1MjgwMTkwNjIwLCJhc3NldF9hZ2VfZGF5cyI6MTM0LCJ2aV91c2VjYXNlX2lkIjoxMDY4MCwiZHVyYXRpb25fcyI6NTYsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=CXsfJH-KiVsWOjtHfA3TWA&_nc_ss=7a389&_nc_zt=28&oh=00_Af2zHbsGHvdhQIz8Dtv0Zzv610OfO3UjflyPhWMGgd6PJA&oe=69EC361D" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">Bavaro's</div>
+          <span class="vs-duration" style="background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);">Running 11m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Threads</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. The Cool Venue -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video.fhio3-1.fna.fbcdn.net/o1/v/t2/f2/m366/AQO9uoX9NDmpfz9KqgMcFQjzyYJmx5LIixTqz7sDt8ZNC5nrgdzXsINWLXbAf5jl0RkE19CUu318Ulnowqlcs4BhNpp15HMUoirVCILjg5n4Iw.mp4?_nc_cat=104&_nc_oc=Adp1aVKMAmrR7B12I_FG7sOQtu9a8ldw2vYKdBIG6td1BbyaG59ERy3tzQkDYhPeLBY&_nc_sid=5e9851&_nc_ht=video.fhio3-1.fna.fbcdn.net&_nc_ohc=XQqpfnAn5UwQ7kNvwENG_sE&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjEzNzkyNTQxMjAwNDQyNDIsImFzc2V0X2FnZV9kYXlzIjoyODMsInZpX3VzZWNhc2VfaWQiOjEwNzk5LCJkdXJhdGlvbl9zIjoxNCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=98f88087f1e45c68&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC8yMjQzMjBBRDA1QjM1NkY1QTEzREI3M0E4NTg2MThCNl9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzFBNEVEOUY3MzUwODdGQzlCRjY4MDg5OTJBQUU2MEFFX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACak24r-k5vzBBUCKAJDMywXQCx3S8an754YGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUAZd6oAQA&_nc_gid=ZQiL3B6Q3kBvAaxDHiVE1w&_nc_ss=7a389&_nc_zt=28&oh=00_Af0HY0JBwYsbKaQtoFulN4VwPtFy9LFch2CrxHNMKyvxAQ&oe=69EC3144" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">The Cool Venue — Sayreville &amp; Edison</div>
+          <span class="vs-duration" style="background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);">Running 10m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. The English Country Barn -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video-sea1-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQMMHciMZuWxNbStHIU3j_PODxVfuF6MiTONfOGhw4CSCGdC5T6AMr1LldqVe3vodlhW8U8TtQApKadQsRkdQ0K3qaohkt9SN88_rStjPGquMQ.mp4?_nc_cat=100&_nc_sid=5e9851&_nc_ht=video-sea1-1.xx.fbcdn.net&_nc_ohc=kjqcFnsGVwkQ7kNvwGFvIau&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjczNjU3NTEzODk5MTg0MiwiYXNzZXRfYWdlX2RheXMiOjI2NSwidmlfdXNlY2FzZV9pZCI6MTA3OTksImR1cmF0aW9uX3MiOjQzLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=68e03cf96e43d126&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9BRDQ2ODU5OEFFMzVFMDY4Mjg4MEMwM0RBRDc0NTdBMV9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0Q1NENFMzY2NDEyNUJBMTg3MzcxNEREMzVBQjk3M0IzX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbEu5S4qPrOAhUCKAJDMywXQEXr52yLQ5YYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUAZd6oAQA&_nc_gid=mWhJOIhhqWiHr4S7mpH4CA&_nc_ss=7a389&_nc_zt=28&oh=00_Af3DCjp9oLt7BN5W9SWOMNJL2anKtEbfBO_03apEzQwyrQ&oe=69EC34A8" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">The English Country Barn of the Carolina's</div>
+          <span class="vs-duration" style="background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);">Running 8m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Messenger</span>
+            <span class="vs-ch-tag">Threads</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Canal Street Inn -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video.fhio3-1.fna.fbcdn.net/o1/v/t2/f2/m367/AQO8XkwKC-HV0iH-tq0nGv-3Ba4-R55H_yiKHPrk8sDattcWnOAQ8_LvKvUhwgigcMmbbEAJQ57Xr3mwgzdLXmCC7CDrhhbzOGBbYu8.mp4?_nc_cat=104&_nc_oc=AdrocTL1sqoGjYUx0PSJAWoopbaBN-jCSrmnsgOGGF6ANjdVDvIxmIg9fABnc3o1Uvs&_nc_sid=5e9851&_nc_ht=video.fhio3-1.fna.fbcdn.net&_nc_ohc=8V3aguC5szEQ7kNvwEV_Smy&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6NDY5NDUzMzA5NDI3OTU3LCJhc3NldF9hZ2VfZGF5cyI6NTcyLCJ2aV91c2VjYXNlX2lkIjoxMDA5OSwiZHVyYXRpb25fcyI6NDcsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=6335f5b3fadcb3bc&_nc_vs=HBksFQIYQGlnX2VwaGVtZXJhbC82NTQwRkZBOUNGNjQzNjE3MkQzRUNCN0M0NEJFMUY5MV92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYR2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8zNDM0NjYwNzgwMTcwMDI1XzgwNjY5MzcyMzI2NzgzMTA1NjEubXA0FQICyAESACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJuqD-tvjvdUBFQIoAkMzLBdAR5KPXCj1wxgSZGFzaF9iYXNlbGluZV8xX3YxEQB1AGXmnQEA&_nc_gid=QRdwfMMFAar0lSN3z96k0Q&_nc_ss=7a389&_nc_zt=28&oh=00_Af3LtsatJG16m0s_sUUOwG75Twm9glJa9Fi9xZT5VXapIg&oe=69EC303D" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">Canal Street Inn</div>
+          <span class="vs-duration" style="background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);">Running 7m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Messenger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. VIP Event Hall -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video.fhio3-1.fna.fbcdn.net/o1/v/t2/f2/m366/AQMSZKlqOjgEj11y_8ZrJ-RJRMIwJOxqiv3aPIImI1ZKnWBmycRhRzU-0uD3OJhnsc7h_uO0pb98WWM9xyszC4K5dz5uNTGIYpA27eoIgnTRkg.mp4?_nc_cat=111&_nc_oc=AdqToGUuCElFj7Z7F_2Zk69mhkHnpZarAWhRMORSpZJrg2xUlyKm-zFByi20uh7N89c&_nc_sid=5e9851&_nc_ht=video.fhio3-1.fna.fbcdn.net&_nc_ohc=_suyYSjJb6IQ7kNvwHQj5Mf&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjEzNDEzMDI2MzQyMjg4MzAsImFzc2V0X2FnZV9kYXlzIjoyMDgsInZpX3VzZWNhc2VfaWQiOjEwNzk5LCJkdXJhdGlvbl9zIjozOSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=45d82bb8e330e1dd&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC8wMDQ3RUZCQzI5MjUxMjFFQjdCQzQ3QThFMEExRDY5QV9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50L0U1NDREM0FBMjQyMDM3RUEwMjQ2NEVDMDA3QzQxOTk3X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACa8seWwi_rhBBUCKAJDMywXQEOMzMzMzM0YGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUAZd6oAQA&_nc_gid=ZQiL3B6Q3kBvAaxDHiVE1w&_nc_ss=7a389&_nc_zt=28&oh=00_Af2wIdEQp3sVPOGjxsuIwka4ojkTNxVy8Zz8uCrWR8FgyA&oe=69EC1E45" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">VIP Event Hall</div>
+          <span class="vs-duration" style="background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);">Running 6m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Golden Conifer Functions Venue -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video-atl3-2.xx.fbcdn.net/o1/v/t2/f2/m86/AQON-_5GRELhpz7Zhttnt7cTSWeawvk2FpUbuYfCXpHj1p67HPKwacZFvf9iSlx7JmMDqJaAHYa1uY0bUajtMe9-YYRFWFdy0qJZt2Y.mp4?_nc_cat=101&_nc_sid=5e9851&_nc_ht=video-atl3-2.xx.fbcdn.net&_nc_ohc=mkDEeuu54XgQ7kNvwGppBhC&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMTI3Ni5kYXNoX2Jhc2VsaW5lXzFfdjEiLCJ4cHZfYXNzZXRfaWQiOjE4OTIyMjE3NTgzNjc5MjksImFzc2V0X2FnZV9kYXlzIjoxNzksInZpX3VzZWNhc2VfaWQiOjEwMDk5LCJkdXJhdGlvbl9zIjo4NCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=bd7cb33b049ac05f&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8zRTRBNTY1MjY1MzJDN0JBOTJCNEI0QjUyQzg0MDQ4Ml92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYRmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8xMTkxMTgyODE5NTczMjUyXzMxODU2NDU4MjI3NzgyMzE0NC5tcDQVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAm8qLz2-a93AYVAigCQzMsF0BVKp--dsi0GBJkYXNoX2Jhc2VsaW5lXzFfdjERAHUAZeadAQA&_nc_gid=K8dVxednxE27ECeK9LlvVw&_nc_ss=7a389&_nc_zt=28&oh=00_Af3gDtw5b7RVyHnSAk77QUXYVDh_Uvf70eyzqLDw9N1bwg&oe=69E83D22" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">Golden Conifer Functions Venue</div>
+          <span class="vs-duration" style="background:rgba(148,163,184,0.15);color:#94a3b8;border:1px solid rgba(148,163,184,0.3);">Running 5m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Messenger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. The Barn at Bonner Creek -->
+      <div class="vs-card">
+        <div class="vs-video-wrap">
+          <video controls preload="none" style="width:100%;display:block;background:#000;height:100%;object-fit:cover">
+            <source src="https://video-bos5-1.xx.fbcdn.net/o1/v/t2/f2/m366/AQO4iWBY6andFLFXVRVZ-F94hVdZ_9pznfmu39UFGHL2HKDPYnQ0fKPWyC136aGyBv7a--cPUuTkFeOiEPwbDxbU3SOFaPqBai7ghG63B1Rbaw.mp4?_nc_cat=104&_nc_sid=5e9851&_nc_ht=video-bos5-1.xx.fbcdn.net&_nc_ohc=az7B9l1UhRAQ7kNvwFrJZeZ&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuNzIwLmRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHAiLCJ4cHZfYXNzZXRfaWQiOjIyMjY0Nzk3Mzc4MjUyMTMsImFzc2V0X2FnZV9kYXlzIjoxODgsInZpX3VzZWNhc2VfaWQiOjEwNzk5LCJkdXJhdGlvbl9zIjoxNCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=4acc5455c54346d7&_nc_vs=HBksFQIYRWZiX2VwaGVtZXJhbC9FNzRDRkJFOUMwQzI0OUQ0OUZDNjVDMzM5REExQjJCNl9tdF8xX3ZpZGVvX2Rhc2hpbml0Lm1wNBUAAsgBEgAVAhhAZmJfcGVybWFuZW50LzJENDQxNkU0REEzMjM1MTI2ODRCRkRDN0NDNUFGRTlBX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACb6nvvdlr70BxUCKAJDMywXQC0zMzMzMzMYGWRhc2hfaDI2NC1iYXNpYy1nZW4yXzcyMHARAHUAZd6oAQA&_nc_gid=I80QTggGXL5O8kLrhLjRwg&_nc_ss=7a389&_nc_zt=28&oh=00_Af0BM0o0X7i6gRfaPxb8xxGm0qso9EJWUS5ceGDJGmToFA&oe=69EC1FE8" type="video/mp4" />
+          </video>
+        </div>
+        <div class="vs-meta">
+          <div class="vs-venue">The Barn at Bonner Creek</div>
+          <span class="vs-duration" style="background:rgba(148,163,184,0.15);color:#94a3b8;border:1px solid rgba(148,163,184,0.3);">Running 5m</span>
+          <div class="vs-channels">
+            <span class="vs-ch-tag">Facebook</span>
+            <span class="vs-ch-tag">Instagram</span>
+            <span class="vs-ch-tag">Audience Network</span>
+            <span class="vs-ch-tag">Messenger</span>
+            <span class="vs-ch-tag">Threads</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.vs-grid -->
+
+    <div class="vs-legend">
+      <div class="vs-legend-item"><span class="vs-legend-dot" style="background:#f97316;"></span>3+ years — battle-tested creative</div>
+      <div class="vs-legend-item"><span class="vs-legend-dot" style="background:#fbbf24;"></span>1+ year — proven, scaling</div>
+      <div class="vs-legend-item"><span class="vs-legend-dot" style="background:#60a5fa;"></span>Under 1 year — gaining traction</div>
+      <div class="vs-legend-item"><span class="vs-legend-dot" style="background:#94a3b8;"></span>Under 6 months — early stage</div>
+    </div>
+
+    <div style="margin-top: 32px; padding: 20px 24px; background: rgba(91,196,232,0.08); border: 1px solid rgba(91,196,232,0.2); border-radius: 10px; text-align: center;">
+      <p style="margin:0; color: rgba(255,255,255,0.75); font-size: 0.95rem;">Orchard Group has <strong style="color:#fff;">zero active video ads</strong> while 11 competitors are in-market — some for over three years. This is the single biggest gap we close in Month 1.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= OPEN QUESTIONS ========= -->
+<section>
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">Open Questions</span>
+      <h2>Decisions we need from you.</h2>
+      <p>Nothing ships until these are settled. Each is a yes/no or a quick direction call — a 30-minute working session gets us through all of them.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item open">
+        <button class="acc-header">
+          <span>Approve the combined retainer + paid budget?</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">Proposed: SMM retainer covering both venues plus $4,000/mo media spend ($2K per venue) on Meta. Start date: Week of May 12, 2026. Need sign-off by May 1 to hit the Week 6 paid launch.</div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-header">
+          <span>Who owns on-camera talent for Reels?</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">Bri Rosa and Sha-Real Nix are already named in 5-star reviews. Confirming they can be on camera 1–2× per month (not per week) is the single biggest lever on engagement rate.</div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-header">
+          <span>UGC licensing — blanket opt-in for past couples?</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">We'll draft the outreach email and release form. Need a green light to contact the 384-wedding back catalog. Expected response rate: 30–40%, which unlocks roughly 120 weddings of reusable content.</div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-header">
+          <span>Timeline for the third Savannah venue?</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">Knowing the target open date lets us pre-build the Instagram account, establish the content pipeline 60–90 days pre-launch, and avoid the cold-start curve Chateau and Chapel are still paying for.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CTA BLOCK ========= -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-block">
+      <h2>Two venues. One team. Let's get to work.</h2>
+      <p>Book a 30-minute working session and we'll walk through the proposal line by line, answer the open questions above, and lock in a Week 1 kickoff date.</p>
+      <div class="cta-actions">
+        <a href="https://hightidemarketing.com" class="btn btn-primary">Book a Working Session</a>
+        <a href="mailto:chantz@kodaxe.com" class="btn btn-secondary">Email Chantz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PAGE NAV ========= -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="page-nav">
+      <a href="bottom-funnel.html">
+        <span class="pn-label">← Previous</span>
+        <span class="pn-title">Bottom Funnel</span>
+      </a>
+      <a href="index.html" class="next">
+        <span class="pn-label">Back to start</span>
+        <span class="pn-title">Introduction</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="footer-brand">
+    <img src="/Users/chantzyager/Library/CloudStorage/GoogleDrive-chantz@hightidemarketing.com/.shortcut-targets-by-id/1ZST_lLI4pUxDsP56QU2gFwNVhmOb4gxc/High Tide Marketing/HTM-2.svg" class="ht-logo" alt="High Tide Marketing">
+    <span>HIGH TIDE MARKETING</span>
+  </div>
+  <div>© 2026 High Tide Marketing · Prepared by Chantz Yager</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.dataset.tab;
+      const tabs = btn.closest('.tabs');
+      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      tabs.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      tabs.querySelector('#' + tabId).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.acc-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const body = item.querySelector('.acc-body');
+      const open = item.classList.contains('open');
+      if (open) { body.style.maxHeight = null; item.classList.remove('open'); }
+      else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
+    });
+  });
+  document.querySelectorAll('.acc-item.open .acc-body').forEach(body => {
+    body.style.maxHeight = body.scrollHeight + 'px';
+  });
+  const animateCounter = (el) => {
+    const target = parseFloat(el.dataset.target);
+    const decimals = (el.dataset.target.split('.')[1] || '').length;
+    const duration = 1400; const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = decimals ? value.toFixed(decimals) : Math.floor(value).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = decimals ? target.toFixed(decimals) : Math.floor(target).toLocaleString();
+    };
+    requestAnimationFrame(tick);
+  };
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar').forEach(b => { b.style.height = b.dataset.h + '%'; });
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.bar-chart').forEach(c => barObs.observe(c));
+  document.querySelectorAll('.filter-block').forEach(block => {
+    const search = block.querySelector('.table-search');
+    const chips = block.querySelectorAll('.chip');
+    const rows = block.querySelectorAll('tbody tr');
+    let activeFilter = 'all';
+    const apply = () => {
+      const q = (search?.value || '').toLowerCase();
+      rows.forEach(r => {
+        const text = r.textContent.toLowerCase();
+        const tag = r.dataset.filter;
+        const matchQ = text.includes(q);
+        const matchT = activeFilter === 'all' || tag === activeFilter;
+        r.style.display = (matchQ && matchT) ? '' : 'none';
+      });
+    };
+    if (search) search.addEventListener('input', apply);
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeFilter = chip.dataset.filter;
+        apply();
+      });
+    });
+  });
+</script>
+</body>
+</html>

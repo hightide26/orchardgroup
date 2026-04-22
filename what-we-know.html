@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What We Know — Orchard Group × High Tide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ht-sky: #5bc4e8;
+    --ht-sky-hover: #3fb0d8;
+    --ht-navy: #0d3b52;
+    --ht-navy-deep: #071f2b;
+    --ht-blue: #1a8ab5;
+    --ht-tint-1: #e8f6fd;
+    --ht-tint-2: #d6f4fc;
+    --ht-tint-3: #b8e8f7;
+    --ht-gold: #F0C040;
+    --bg: #ffffff;
+    --surface-soft: #f8fafc;
+    --surface-card: var(--ht-tint-1);
+    --border: #e5ecf1;
+    --text-primary: #0d3b52;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-soft: 0 1px 2px rgba(13, 59, 82, 0.04), 0 2px 8px rgba(13, 59, 82, 0.04);
+    --max-width: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-body);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 16px;
+  }
+  h1 { font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.5rem, 2.6vw, 2.125rem); }
+  h3 { font-size: 1.15rem; font-weight: 600; }
+  p  { margin: 0 0 16px; }
+  a  { color: var(--ht-blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
+  section { padding: 80px 0; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ht-blue);
+    background: var(--ht-tint-1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .section-intro { max-width: 680px; margin-bottom: 56px; }
+  .section-intro p { color: var(--text-muted); font-size: 1.05rem; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-width); margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    color: inherit; text-decoration: none;
+  }
+  .nav-logo:hover { text-decoration: none; }
+  .nav-logo .ht-logo { height: 36px; width: auto; flex-shrink: 0; }
+  .nav-logo-text {
+    font-weight: 800; font-size: 0.95rem;
+    letter-spacing: 0.08em; color: var(--ht-navy); line-height: 1;
+  }
+  .nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    display: inline-block; padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary); font-weight: 500; font-size: 0.95rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .nav-links a:hover { background: var(--ht-tint-1); text-decoration: none; }
+  .nav-links a.active { background: var(--ht-navy); color: #fff; }
+  .nav-cta {
+    display: inline-block;
+    background: var(--ht-sky); color: var(--ht-navy-deep);
+    font-weight: 600; padding: 10px 18px;
+    border-radius: var(--radius-sm); font-size: 0.95rem;
+    transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: var(--ht-sky-hover); text-decoration: none; }
+  @media (max-width: 920px) { .nav-links { display: none; } }
+
+  /* PAGE HEADER */
+  .page-hero {
+    padding: 64px 0 72px;
+    background:
+      radial-gradient(ellipse at top right, var(--ht-tint-2) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, var(--ht-tint-1) 0%, transparent 50%),
+      #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero .section-label { margin-bottom: 16px; }
+  .page-hero p.lead {
+    font-size: 1.1rem; color: var(--text-muted);
+    max-width: 720px; margin: 0;
+  }
+  .breadcrumbs { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px; }
+  .breadcrumbs a { color: var(--text-muted); }
+  .breadcrumbs span { color: var(--ht-navy); font-weight: 500; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block; padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    font-weight: 600; font-size: 0.98rem;
+    cursor: pointer; border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .btn-primary { background: var(--ht-sky); color: var(--ht-navy-deep); }
+  .btn-primary:hover { background: var(--ht-sky-hover); text-decoration: none; }
+  .btn-secondary { background: transparent; color: var(--ht-navy); border-color: var(--border); }
+  .btn-secondary:hover { background: var(--ht-tint-1); border-color: var(--ht-tint-3); text-decoration: none; }
+  .btn-arrow { color: var(--ht-blue); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-arrow:hover { color: var(--ht-navy); text-decoration: none; }
+  .btn-arrow::after { content: '→'; transition: transform 0.15s ease; }
+  .btn-arrow:hover::after { transform: translateX(3px); }
+
+  /* KPI */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .kpi-card {
+    background: var(--surface-card); border-radius: var(--radius-md);
+    padding: 28px 24px; border: 1px solid var(--border);
+  }
+  .kpi-card.light { background: #fff; }
+  .kpi-value {
+    font-size: 2.5rem; font-weight: 800; color: var(--ht-navy);
+    letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px;
+  }
+  .kpi-value .suffix, .kpi-value .prefix { color: var(--ht-blue); }
+  .kpi-label { font-size: 0.92rem; color: var(--text-muted); font-weight: 500; }
+  .kpi-delta {
+    display: inline-block; margin-top: 10px;
+    font-size: 0.82rem; font-weight: 600;
+    padding: 3px 8px; border-radius: 999px;
+    background: #e6f7ef; color: #0f7a4e;
+  }
+  .kpi-delta.down { background: #fdecec; color: #b4312a; }
+  @media (max-width: 820px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* FEATURE CARDS */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 32px 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); border-color: var(--ht-tint-3); }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--ht-tint-1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; font-size: 1.25rem; color: var(--ht-blue);
+  }
+  .feature-card h3 { margin-bottom: 10px; }
+  .feature-card p { color: var(--text-muted); font-size: 0.96rem; margin-bottom: 16px; }
+  @media (max-width: 820px) { .feature-grid { grid-template-columns: 1fr; } }
+
+  /* SPLIT */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .split.reverse .split-media { order: 2; }
+  .split-media {
+    background: linear-gradient(135deg, var(--ht-tint-2) 0%, var(--ht-tint-1) 100%);
+    aspect-ratio: 4 / 3; border-radius: var(--radius-lg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ht-blue); font-weight: 500;
+  }
+  .split-text h2 { margin-bottom: 20px; }
+  .split-text p { color: var(--text-muted); margin-bottom: 20px; }
+  .split-text ul { padding-left: 20px; color: var(--text-body); }
+  .split-text ul li { margin-bottom: 8px; }
+  @media (max-width: 820px) {
+    .split { grid-template-columns: 1fr; gap: 32px; }
+    .split.reverse .split-media { order: 0; }
+  }
+
+  /* BEFORE/AFTER */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .ba-card { border-radius: var(--radius-md); padding: 32px; border: 1px solid var(--border); }
+  .ba-card.before { background: #f8fafc; }
+  .ba-card.after { background: var(--ht-tint-1); border-color: var(--ht-tint-3); }
+  .ba-tag {
+    display: inline-block; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .ba-card.before .ba-tag { background: #fff; color: var(--text-muted); border: 1px solid var(--border); }
+  .ba-card.after .ba-tag { background: var(--ht-navy); color: #fff; }
+  .ba-metric {
+    font-size: 2.2rem; font-weight: 800; color: var(--ht-navy);
+    margin: 10px 0 6px; line-height: 1;
+  }
+  .ba-card p { color: var(--text-muted); margin: 0; }
+  @media (max-width: 820px) { .ba-grid { grid-template-columns: 1fr; } }
+
+  /* TABS */
+  .tabs { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+  .tab-buttons { display: flex; border-bottom: 1px solid var(--border); background: var(--surface-soft); overflow-x: auto; }
+  .tab-btn {
+    flex: 1; min-width: 120px; padding: 16px 20px;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    font-family: inherit; font-size: 0.95rem; font-weight: 500;
+    color: var(--text-muted); cursor: pointer;
+    transition: all 0.15s ease; white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--ht-navy); }
+  .tab-btn.active {
+    color: var(--ht-navy); border-bottom-color: var(--ht-sky);
+    background: #fff; font-weight: 600;
+  }
+  .tab-panel { padding: 36px; display: none; }
+  .tab-panel.active { display: block; }
+  .tab-panel h3 { margin-bottom: 12px; }
+  .tab-panel p { color: var(--text-muted); }
+
+  /* ACCORDION */
+  .accordion { display: flex; flex-direction: column; gap: 12px; }
+  .acc-item {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius-md); overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .acc-item.open { border-color: var(--ht-tint-3); }
+  .acc-header {
+    width: 100%; padding: 20px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 1.02rem; font-weight: 600;
+    color: var(--text-primary); text-align: left;
+  }
+  .acc-icon {
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ht-blue); font-size: 1.4rem; font-weight: 400;
+    transition: transform 0.2s ease; flex-shrink: 0;
+  }
+  .acc-item.open .acc-icon { transform: rotate(45deg); }
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+  .acc-body-inner { padding: 0 24px 20px; color: var(--text-muted); }
+
+  /* TABLE */
+  .table-toolbar { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+  .table-search {
+    flex: 1; min-width: 220px; padding: 10px 14px;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 0.95rem;
+    background: #fff; color: var(--text-primary);
+    transition: border-color 0.15s ease;
+  }
+  .table-search:focus {
+    outline: none; border-color: var(--ht-sky);
+    box-shadow: 0 0 0 3px var(--ht-tint-2);
+  }
+  .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--border); background: #fff;
+    font-family: inherit; font-size: 0.88rem; font-weight: 500;
+    color: var(--text-muted); cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .chip:hover { color: var(--text-primary); }
+  .chip.active { background: var(--ht-navy); color: #fff; border-color: var(--ht-navy); }
+  .data-table-wrap { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; background: #fff; }
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+  .data-table th, .data-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+  .data-table th {
+    background: var(--surface-soft); color: var(--text-primary);
+    font-weight: 600; font-size: 0.82rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover { background: var(--ht-tint-1); }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+  .pill-green { background: #e6f7ef; color: #0f7a4e; }
+  .pill-gold  { background: #fef5dd; color: #8a6300; }
+  .pill-blue  { background: var(--ht-tint-1); color: var(--ht-blue); }
+  .pill-red   { background: #fdecec; color: #b4312a; }
+
+  /* CHART */
+  .chart-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 32px; }
+  .chart-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+  .chart-head h3 { margin: 0; }
+  .chart-legend { display: flex; gap: 16px; font-size: 0.88rem; color: var(--text-muted); }
+  .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+  .bar-chart { display: grid; gap: 20px; height: 260px; align-items: end; padding: 12px 0 0; border-bottom: 1px solid var(--border); }
+  .bar-col { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+  .bar-pair { display: flex; gap: 4px; align-items: flex-end; width: 100%; height: 100%; }
+  .bar {
+    flex: 1; border-radius: 4px 4px 0 0;
+    background: var(--ht-tint-3);
+    transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 0;
+  }
+  .bar.primary { background: var(--ht-sky); }
+  .bar.secondary { background: var(--ht-navy); }
+  .chart-labels { display: grid; gap: 20px; padding-top: 10px; }
+  .chart-labels div { text-align: center; font-size: 0.82rem; color: var(--text-muted); }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 10px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; padding-bottom: 28px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute; left: -26px; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--ht-sky); border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--ht-tint-3);
+  }
+  .timeline-item h4 { font-size: 1.02rem; margin-bottom: 4px; color: var(--text-primary); }
+  .timeline-item .timeline-meta {
+    font-size: 0.82rem; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 6px; font-weight: 600;
+  }
+  .timeline-item p { color: var(--text-muted); margin: 0; }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, var(--ht-navy) 0%, var(--ht-navy-deep) 100%);
+    border-radius: var(--radius-lg); padding: 64px 48px;
+    text-align: center; color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .cta-block::before {
+    content: ''; position: absolute; top: -40%; right: -10%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, var(--ht-sky) 0%, transparent 70%);
+    opacity: 0.2;
+  }
+  .cta-block h2 { color: #fff; margin-bottom: 14px; position: relative; }
+  .cta-block p {
+    color: rgba(255, 255, 255, 0.78); font-size: 1.1rem;
+    max-width: 560px; margin: 0 auto 28px; position: relative;
+  }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .cta-block .btn-secondary {
+    background: transparent; color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+  .cta-block .btn-secondary:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.4); }
+
+  /* PAGE NAV */
+  .page-nav {
+    display: flex; justify-content: space-between; gap: 16px;
+    margin: 40px 0 0; padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .page-nav a {
+    display: flex; flex-direction: column;
+    padding: 16px 24px; border-radius: var(--radius-md);
+    border: 1px solid var(--border); background: #fff;
+    min-width: 180px; color: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .page-nav a:hover { border-color: var(--ht-tint-3); background: var(--ht-tint-1); text-decoration: none; }
+  .page-nav a.next { text-align: right; align-items: flex-end; }
+  .page-nav .pn-label { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .page-nav .pn-title { font-weight: 600; color: var(--ht-navy); font-size: 1rem; margin-top: 4px; }
+  .page-nav .spacer { flex: 1; }
+  @media (max-width: 820px) { .page-nav a { min-width: 0; flex: 1; } }
+
+  /* FOOTER */
+  footer { background: var(--surface-soft); border-top: 1px solid var(--border); padding: 36px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+  .footer-brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 12px; font-weight: 800;
+    letter-spacing: 0.08em; color: var(--ht-navy); font-size: 0.9rem;
+  }
+  .footer-brand .ht-logo { height: 24px; }
+
+  /* ============ CLIENT SNAPSHOT (editable dashboard) ============ */
+  .client-snapshot {
+    background: linear-gradient(180deg, #ffffff 0%, var(--surface-soft) 100%);
+    border: 1px solid #e1edf5;
+    border-radius: 20px;
+    padding: 48px;
+    box-shadow: 0 1px 3px rgba(13, 59, 82, 0.04), 0 20px 50px -20px rgba(13, 59, 82, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .client-snapshot::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--ht-tint-2) 0%, transparent 70%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .cs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: relative;
+  }
+  .cs-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+  }
+  .cs-edit-hint {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cs-edit-hint::before {
+    content: '✎';
+    color: var(--ht-blue);
+    font-size: 0.95rem;
+  }
+  .cs-group {
+    position: relative;
+    padding-top: 28px;
+    margin-top: 28px;
+    border-top: 1px solid #e1edf5;
+  }
+  .cs-group:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+  }
+  .cs-group-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .cs-grid {
+    display: grid;
+    gap: 14px;
+  }
+  .cs-grid.two   { grid-template-columns: 1fr 1fr; }
+  .cs-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .cs-grid.spend { grid-template-columns: 1fr 1fr 1.25fr; }
+
+  .cs-field {
+    background: #fff;
+    border: 1px solid #e1edf5;
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cs-field:focus-within {
+    border-color: var(--ht-sky);
+    box-shadow: 0 0 0 3px var(--ht-tint-2);
+  }
+  .cs-field-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .cs-input-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .cs-prefix, .cs-suffix {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .cs-input {
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--ht-navy);
+    letter-spacing: -0.02em;
+    padding: 0;
+    width: 100%;
+    outline: none;
+    min-width: 0;
+    line-height: 1.1;
+  }
+  .cs-input:focus { color: var(--ht-blue); }
+  .cs-input::placeholder { color: #c5d4e0; }
+  .cs-field-hint {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  .cs-tier-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #fff 0%, var(--ht-tint-1) 100%);
+    border: 1px solid var(--ht-tint-3);
+  }
+  .cs-tier-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .cs-tier-value {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--ht-sky) 0%, var(--ht-blue) 60%, var(--ht-navy) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .cs-tier-badge {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .cs-tier-badge.maintain { background: #eef2f5; color: #64748b; }
+  .cs-tier-badge.growth   { background: #e6f7ef; color: #0f7a4e; }
+  .cs-tier-badge.fast     { background: var(--ht-tint-1); color: var(--ht-blue); }
+  .cs-tier-badge.rapid    { background: #fef5dd; color: #8a6300; }
+  .cs-tier-badge.warn     { background: #fdecec; color: #b4312a; }
+
+  /* Revenue breakdown sum bar */
+  .cs-sum-row {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+  .cs-sum-bar {
+    flex: 1;
+    min-width: 140px;
+    height: 6px;
+    background: #eef2f5;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cs-sum-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ht-sky), var(--ht-blue));
+    transition: width 0.4s ease, background 0.3s ease;
+    border-radius: 999px;
+  }
+  .cs-sum-bar-fill.over { background: linear-gradient(90deg, #F0C040, #b4312a); }
+  .cs-sum-bar-fill.exact { background: linear-gradient(90deg, #5bc4e8, #0f7a4e); }
+  .cs-sum-amount { font-weight: 600; color: var(--ht-navy); }
+
+  /* Referral callout inline tag */
+  .cs-referral-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #fef5dd 0%, #fde5b0 100%);
+    color: #8a6300;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .cs-referral-tag::before { content: '∞'; font-size: 1rem; font-weight: 700; line-height: 1; }
+
+  /* Acquisition allocation row */
+  .cs-allocation {
+    margin-top: 16px;
+    padding: 18px 22px;
+    border: 1px solid #e1edf5;
+    border-radius: 12px;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .cs-allocation-input { display: flex; flex-direction: column; gap: 8px; }
+  .cs-allocation-input label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .cs-allocation-field {
+    display: flex; align-items: baseline; gap: 4px;
+  }
+  .cs-allocation-field input {
+    border: none; background: none; font-family: inherit;
+    font-size: 1.4rem; font-weight: 800; color: var(--ht-navy);
+    letter-spacing: -0.02em; padding: 0; outline: none;
+    width: 60px;
+  }
+  .cs-allocation-field input:focus { color: var(--ht-blue); }
+  .cs-allocation-split {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .cs-allocation-split strong { color: var(--ht-navy); font-weight: 700; }
+
+  /* ROAS note */
+  .cs-roas-note {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(26, 138, 181, 0.06);
+    border-left: 3px solid var(--ht-blue);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.84rem;
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+
+  /* Path to Goal cards */
+  .ptg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .ptg-card {
+    background: #fff;
+    border: 1px solid #e1edf5;
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ptg-card:focus-within {
+    border-color: var(--ht-sky);
+    box-shadow: 0 0 0 3px var(--ht-tint-2);
+  }
+  .ptg-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .ptg-arrow {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .ptg-current {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.1;
+  }
+  .ptg-to { color: var(--ht-blue); font-weight: 700; }
+  .ptg-target {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--ht-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .ptg-target-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border);
+  }
+  .ptg-target-row label {
+    font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
+  }
+  .ptg-pct-input {
+    border: none; background: var(--ht-tint-1);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ht-navy);
+    width: 54px;
+    outline: none;
+    text-align: right;
+  }
+  .ptg-pct-input:focus { background: var(--ht-tint-2); }
+  .ptg-growth {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+  }
+  .ptg-growth.up      { background: #e6f7ef; color: #0f7a4e; }
+  .ptg-growth.flat    { background: #eef2f5; color: #64748b; }
+  .ptg-growth.down    { background: #fdecec; color: #b4312a; }
+  .ptg-growth.huge    { background: #fef5dd; color: #8a6300; }
+
+  @media (max-width: 920px) {
+    .ptg-grid { grid-template-columns: 1fr; }
+    .cs-allocation { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 920px) {
+    .client-snapshot { padding: 32px; }
+    .cs-grid.two, .cs-grid.three, .cs-grid.spend {
+      grid-template-columns: 1fr;
+    }
+    .cs-input { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========= NAV ========= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">
+      <img src="/Users/chantzyager/Library/CloudStorage/GoogleDrive-chantz@hightidemarketing.com/.shortcut-targets-by-id/1ZST_lLI4pUxDsP56QU2gFwNVhmOb4gxc/High Tide Marketing/HTM-2.svg" class="ht-logo" alt="High Tide Marketing">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Introduction</a></li>
+      <li><a href="what-we-know.html" class="active">What We Know</a></li>
+      <li><a href="top-of-funnel.html">Top of Funnel</a></li>
+      <li><a href="middle-funnel.html">Middle Funnel</a></li>
+      <li><a href="bottom-funnel.html">Bottom Funnel</a></li>
+      <li><a href="next-steps.html">Next Steps</a></li>
+      <li><a href="competitor.html">Competitors</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========= PAGE HERO ========= -->
+<header class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Introduction</a> / <span>What We Know</span></div>
+    <span class="section-label">01 — The Two Venues, Side by Side</span>
+    <h1>Two venues. Shared DNA. One opportunity.</h1>
+    <p class="lead">Before we talk strategy, here's the current state of both properties pulled directly from Instagram, Google, Ahrefs, and the paid listing sites. The pattern is consistent: both venues are operating well above what the marketing is doing for them. Reviews, referrals, and reputation are carrying more weight than any channel should have to.</p>
+  </div>
+</header>
+
+<!-- ========= VENUE COMPARISON (Orchard Group) ========= -->
+<section>
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">Venue Snapshot</span>
+      <h2>Chateau 1800 vs. The Chapel by the Sea — as the data sees them.</h2>
+      <p>One is a 27-acre flagship estate in Rincon. The other is an intimate beachside chapel on Tybee Island. Different venues, different audiences, same operations team — and both dramatically under-marketed relative to the reputation they've earned.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;">
+      <!-- Chateau 1800 card -->
+      <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 32px 28px;">
+        <div style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ht-blue); margin-bottom: 8px;">Venue 01 · Rincon, GA</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 6px;">Chateau 1800</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.94rem;">1800 McCall Rd · The flagship full-service estate. Pavilion, peninsula ceremony space, getting-ready suites. Effingham County / greater Savannah market.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">10,543</div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">IG Followers</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">0.27<span style="font-size: 1rem; color: var(--ht-blue);">%</span></div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">IG Engagement</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">4.9<span style="font-size: 1rem; color: var(--ht-blue);">★</span></div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Google (211 reviews)</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">DR 32</div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Ahrefs Domain Rating</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">446</div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Organic visits/mo</div></div>
+          <div style="background: #fdecec; border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: #b4312a; line-height: 1;">52<span style="font-size: 1rem;">%</span></div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">of addressable traffic captured</div></div>
+        </div>
+      </div>
+
+      <!-- Chapel by the Sea card -->
+      <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 32px 28px;">
+        <div style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ht-blue); margin-bottom: 8px;">Venue 02 · Tybee Island, GA</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 6px;">The Chapel by the Sea</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.94rem;">1114 US-80 · Intimate beachside wedding chapel minutes from downtown Savannah. Built for smaller, destination-style weddings and elopements.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">4,168</div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">IG Followers</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">1.31<span style="font-size: 1rem; color: var(--ht-blue);">%</span></div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">IG Engagement</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">4.8<span style="font-size: 1rem; color: var(--ht-blue);">★</span></div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Google (173 reviews)</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">DR 55</div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Ahrefs Domain Rating</div></div>
+          <div style="background: var(--ht-tint-1); border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: var(--ht-navy); line-height: 1;">404</div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Organic visits/mo</div></div>
+          <div style="background: #fdecec; border-radius: var(--radius-sm); padding: 14px;"><div style="font-size: 1.6rem; font-weight: 800; color: #b4312a; line-height: 1;">27<span style="font-size: 1rem;">%</span></div><div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">of addressable traffic captured</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shared operations callout -->
+    <div style="background: linear-gradient(135deg, var(--ht-tint-2) 0%, var(--ht-tint-1) 100%); border: 1px solid var(--ht-tint-3); border-radius: var(--radius-lg); padding: 32px 36px;">
+      <div style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ht-blue); margin-bottom: 10px;">The Orchard Group Advantage</div>
+      <h3 style="margin-bottom: 10px;">Two brands, one operations team, one standard of service.</h3>
+      <p style="color: var(--text-body); margin: 0;">Bri Rosa (Director of Planning) and Sha-Real Nix (Director of Operations) are named repeatedly across <strong>384 combined Google reviews</strong> as the reason couples book and stay happy. That level of operational consistency is rare — and it's an asset the current marketing isn't leveraging. The third Savannah venue inherits the same team, which means it can open into an already-warm brand instead of starting from zero.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= BUSINESS SNAPSHOT (fill in together) ========= -->
+<section style="background: var(--surface-soft);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">Business Snapshot · For Discussion</span>
+      <h2>Let's fill this in together.</h2>
+      <p>Four numbers per venue. Takes about three minutes. The ROAS and gap analysis below calculate live as you type — numbers stay local to your browser.</p>
+    </div>
+
+    <!-- ===== VENUE INPUT CARDS ===== -->
+    <div class="client-snapshot" style="margin-bottom: 24px;">
+      <div class="cs-header">
+        <h3>Venue Fundamentals</h3>
+        <span class="cs-edit-hint">✏ Click any value to edit</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+
+        <!-- CHATEAU 1800 -->
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ht-blue); margin-bottom: 16px;">Chateau 1800</div>
+          <div class="cs-grid two">
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-ch-rev25">2025 Revenue</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-ch-rev25" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+            </div>
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-ch-goal26">2026 Revenue Goal</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-ch-goal26" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+              <div id="bm-ch-goal-callout" style="display:none;margin-top:8px;font-size:0.8rem;font-weight:700;color:var(--ht-blue);padding:5px 9px;background:rgba(13,130,195,0.08);border-radius:5px;border:1px solid rgba(13,130,195,0.2);"></div>
+            </div>
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-ch-spend">Annual Marketing Spend</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-ch-spend" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+              <div class="cs-field-hint">Or enter monthly avg × 12</div>
+              <div id="bm-ch-spend-callout" style="display:none;margin-top:8px;font-size:0.78rem;color:var(--text-body);padding:5px 9px;background:var(--ht-tint-1);border-radius:5px;border:1px solid var(--ht-tint-3);line-height:1.5;"></div>
+            </div>
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-ch-pkg">Avg Package Value</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-ch-pkg" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAPEL BY THE SEA -->
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #b8860b; margin-bottom: 16px;">Chapel by the Sea</div>
+          <div class="cs-grid two">
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-cp-rev25">2025 Revenue</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-cp-rev25" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+            </div>
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-cp-goal26">2026 Revenue Goal</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-cp-goal26" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+              <div id="bm-cp-goal-callout" style="display:none;margin-top:8px;font-size:0.8rem;font-weight:700;color:var(--ht-blue);padding:5px 9px;background:rgba(13,130,195,0.08);border-radius:5px;border:1px solid rgba(13,130,195,0.2);"></div>
+            </div>
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-cp-spend">Annual Marketing Spend</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-cp-spend" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+              <div class="cs-field-hint">Or enter monthly avg × 12</div>
+              <div id="bm-cp-spend-callout" style="display:none;margin-top:8px;font-size:0.78rem;color:var(--text-body);padding:5px 9px;background:var(--ht-tint-1);border-radius:5px;border:1px solid var(--ht-tint-3);line-height:1.5;"></div>
+            </div>
+            <div class="cs-field">
+              <label class="cs-field-label" for="snap-cp-pkg">Avg Package Value</label>
+              <div class="cs-input-wrap"><span class="cs-prefix">$</span>
+                <input class="cs-input snap-input" id="snap-cp-pkg" type="text" placeholder="—" inputmode="numeric" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== BUSINESS MATH (live-calculated dark card) ===== -->
+    <div class="client-snapshot" style="background: linear-gradient(135deg, var(--ht-navy) 0%, #0a2e42 100%); color: #fff; border: none; box-shadow: 0 8px 40px -12px rgba(13,59,82,0.4);">
+      <div class="cs-header">
+        <h3 style="color: #fff;">Business Math</h3>
+        <span style="font-size: 0.82rem; color: rgba(255,255,255,0.45);">Updates live as you type</span>
+      </div>
+
+      <!-- Per-venue ROAS side by side -->
+      <div class="cs-group" style="border-top-color: rgba(255,255,255,0.12); padding-top: 24px; margin-top: 24px;">
+        <div class="cs-group-label" style="color: rgba(255,255,255,0.45);">ROAS by Venue — 2025 Revenue ÷ Marketing Spend</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 0;">
+          <div style="background: rgba(91,196,232,0.08); border: 1px solid rgba(91,196,232,0.2); border-radius: var(--radius-md); padding: 24px 28px;">
+            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ht-sky); margin-bottom: 12px;">Chateau 1800</div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px;">
+              <div style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1;" id="bm-ch-roas">—</div>
+              <span style="font-size: 1rem; color: rgba(255,255,255,0.5);">x</span>
+              <span class="cs-tier-badge" id="bm-ch-roas-badge">—</span>
+            </div>
+            <div style="font-size: 0.82rem; color: rgba(255,255,255,0.45);" id="bm-ch-roas-note">Enter revenue &amp; spend above</div>
+          </div>
+          <div style="background: rgba(240,192,64,0.08); border: 1px solid rgba(240,192,64,0.2); border-radius: var(--radius-md); padding: 24px 28px;">
+            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ht-gold); margin-bottom: 12px;">Chapel by the Sea</div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px;">
+              <div style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1;" id="bm-cp-roas">—</div>
+              <span style="font-size: 1rem; color: rgba(255,255,255,0.5);">x</span>
+              <span class="cs-tier-badge" id="bm-cp-roas-badge">—</span>
+            </div>
+            <div style="font-size: 0.82rem; color: rgba(255,255,255,0.45);" id="bm-cp-roas-note">Enter revenue &amp; spend above</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combined summary row -->
+      <div class="cs-group" style="border-top-color: rgba(255,255,255,0.12); padding-top: 24px; margin-top: 24px;">
+        <div class="cs-group-label" style="color: rgba(255,255,255,0.45);">Combined Picture</div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+          <div>
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px;">Combined 2025 Revenue</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1;" id="bm-combined-rev">—</div>
+          </div>
+          <div>
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px;">Combined 2026 Goal</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1;" id="bm-combined-goal">—</div>
+          </div>
+          <div>
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px;">Revenue Gap</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--ht-sky); letter-spacing: -0.02em; line-height: 1;" id="bm-gap">—</div>
+          </div>
+          <div>
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px;">Growth Required</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--ht-sky); letter-spacing: -0.02em; line-height: 1;" id="bm-growth">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spend as % of revenue / goal -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+        <div style="padding:12px 16px;background:rgba(255,255,255,0.05);border-radius:var(--radius-sm);">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;">Combined Spend ÷ 2025 Revenue</div>
+          <div style="font-size:1.5rem;font-weight:800;color:#fff;line-height:1;" id="bm-spend-rev-pct">—</div>
+        </div>
+        <div style="padding:12px 16px;background:rgba(91,196,232,0.07);border-radius:var(--radius-sm);border:1px solid rgba(91,196,232,0.15);">
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;">Combined Spend ÷ 2026 Goal</div>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--ht-sky);line-height:1;" id="bm-spend-goal-pct">—</div>
+        </div>
+      </div>
+
+      <!-- Weddings needed + spend rec -->
+      <div class="cs-group" style="border-top-color: rgba(255,255,255,0.12); padding-top: 24px; margin-top: 24px;">
+        <div class="cs-group-label" style="color: rgba(255,255,255,0.45);">What It Takes to Hit the Goal</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 16px;">
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 20px 22px;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 10px;">Additional Weddings Needed</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--ht-sky); letter-spacing: -0.02em; line-height: 1;" id="bm-weddings-needed">—</div>
+            <div style="font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 6px;" id="bm-weddings-note">based on avg package value</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 20px 22px;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 10px;">Total Marketing Spend</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1;" id="bm-total-spend">—</div>
+            <div style="font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 6px;" id="bm-spend-mo">— / mo combined</div>
+          </div>
+          <div style="background: rgba(91,196,232,0.08); border: 1px solid rgba(91,196,232,0.2); border-radius: var(--radius-md); padding: 20px 22px;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 10px;">Recommended Spend to Hit Goal</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--ht-sky); letter-spacing: -0.02em; line-height: 1;" id="bm-rec-spend">—</div>
+            <div style="font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 8px;">8–12% of combined goal — growth-phase venue benchmark</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROAS reference -->
+      <div style="margin-top: 20px; padding: 16px 20px; background: rgba(255,255,255,0.04); border-radius: var(--radius-md); display: flex; gap: 32px; flex-wrap: wrap;">
+        <div style="font-size: 0.82rem; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; align-self: center;">ROAS Bands</div>
+        <div style="font-size: 0.88rem; color: rgba(255,255,255,0.65);"><strong style="color: rgba(255,255,255,0.85);">&lt;2x</strong> Below breakeven</div>
+        <div style="font-size: 0.88rem; color: rgba(255,255,255,0.65);"><strong style="color: rgba(255,255,255,0.85);">2–4x</strong> Healthy</div>
+        <div style="font-size: 0.88rem; color: rgba(255,255,255,0.65);"><strong style="color: rgba(255,255,255,0.85);">4–8x</strong> Strong</div>
+        <div style="font-size: 0.88rem; color: rgba(255,255,255,0.65);"><strong style="color: var(--ht-gold);">8x+</strong> Elite</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- hidden legacy calculator (preserved) -->
+<div style="display:none;">
+    <div class="client-snapshot" style="display:none;">
+
+    <div class="client-snapshot">
+      <div class="cs-header">
+        <h3>Business Fundamentals</h3>
+        <span class="cs-edit-hint">Click any value to edit</span>
+      </div>
+
+      <!-- Revenue + goal -->
+      <div class="cs-group">
+        <div class="cs-group-label">Revenue</div>
+        <div class="cs-grid two">
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-revenue-2025">Prior Year Gross Revenue</label>
+            <div class="cs-input-wrap">
+              <span class="cs-prefix">$</span>
+              <input class="cs-input" id="cs-revenue-2025" type="text" value="500,000" inputmode="numeric" />
+            </div>
+            <div class="cs-field-hint">Last full year actual</div>
+          </div>
+          <div class="cs-field cs-tier-field">
+            <label class="cs-field-label">Current Year Revenue Goal</label>
+            <div class="cs-tier-row">
+              <span class="cs-input-wrap" style="flex: 0 0 auto;">
+                <span class="cs-prefix">$</span>
+                <input class="cs-input" id="cs-revenue-goal" type="text" value="750,000" inputmode="numeric" />
+              </span>
+              <span class="cs-tier-badge rapid" id="cs-growth-badge">+50% Growth</span>
+            </div>
+            <div class="cs-field-hint" style="margin-top: 10px;">Target over prior year</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue breakdown by source (percentages) -->
+      <div class="cs-group">
+        <div class="cs-group-label">Revenue Breakdown (Prior Year by Source)</div>
+        <div class="cs-field-hint" style="margin: -8px 0 16px;">Enter estimated percentages — dollar amounts auto-calculate from prior year gross. A best guess is fine; it helps dial in the strategy.</div>
+        <div class="cs-grid three">
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-rev-existing">Existing Customers</label>
+            <div class="cs-input-wrap">
+              <input class="cs-input" id="cs-rev-existing" type="text" value="50" inputmode="decimal" />
+              <span class="cs-suffix">%</span>
+            </div>
+            <div class="cs-field-hint">≈ <span id="cs-rev-existing-dollars">$250,000</span> · repeat &amp; retention</div>
+          </div>
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-rev-referral">Referrals</label>
+            <div class="cs-input-wrap">
+              <input class="cs-input" id="cs-rev-referral" type="text" value="25" inputmode="decimal" />
+              <span class="cs-suffix">%</span>
+            </div>
+            <div class="cs-field-hint">≈ <span id="cs-rev-referral-dollars">$125,000</span> · word-of-mouth &amp; partners</div>
+            <span class="cs-referral-tag" title="Referrals carry near-zero acquisition cost">ROAS at ~$0 CAC</span>
+          </div>
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-rev-new">New Customers</label>
+            <div class="cs-input-wrap">
+              <input class="cs-input" id="cs-rev-new" type="text" value="25" inputmode="decimal" />
+              <span class="cs-suffix">%</span>
+            </div>
+            <div class="cs-field-hint">≈ <span id="cs-rev-new-dollars">$125,000</span> · first-touch acquisition</div>
+          </div>
+        </div>
+        <div class="cs-sum-row">
+          <span>Breakdown share: <span class="cs-sum-amount" id="cs-sum-amount">100%</span> of <span id="cs-sum-target">100%</span></span>
+          <div class="cs-sum-bar"><div class="cs-sum-bar-fill exact" id="cs-sum-bar-fill" style="width: 100%;"></div></div>
+          <span id="cs-sum-status" style="font-weight:600; color: var(--ht-blue);">Totals 100%</span>
+        </div>
+      </div>
+
+      <!-- Spend + tier -->
+      <div class="cs-group">
+        <div class="cs-group-label">Marketing Spend</div>
+        <div class="cs-grid spend">
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-annual-spend">Annual</label>
+            <div class="cs-input-wrap">
+              <span class="cs-prefix">$</span>
+              <input class="cs-input" id="cs-annual-spend" type="text" value="50,000" inputmode="numeric" />
+            </div>
+            <div class="cs-field-hint">Total 2026 budget</div>
+          </div>
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-monthly-spend">Monthly</label>
+            <div class="cs-input-wrap">
+              <span class="cs-prefix">$</span>
+              <input class="cs-input" id="cs-monthly-spend" type="text" value="4,167" inputmode="numeric" />
+            </div>
+            <div class="cs-field-hint">Auto-syncs with annual</div>
+          </div>
+          <div class="cs-field cs-tier-field">
+            <span class="cs-field-label">% of Revenue</span>
+            <div class="cs-tier-row">
+              <span class="cs-tier-value" id="cs-tier-pct">10%</span>
+              <span class="cs-tier-badge rapid" id="cs-tier-badge">Rapid Growth</span>
+            </div>
+            <div class="cs-field-hint" id="cs-tier-note" style="margin-top: 10px;">&lt;5% Maintain · 5–7% Growth · 7–10% Fast · 10%+ Rapid</div>
+          </div>
+        </div>
+
+        <!-- Acquisition vs retention allocation -->
+        <div class="cs-allocation">
+          <div class="cs-allocation-input">
+            <label for="cs-acq-share">Acquisition Share of Spend</label>
+            <div class="cs-allocation-field">
+              <input id="cs-acq-share" type="text" value="70" inputmode="decimal" />
+              <span style="font-size: 1.2rem; font-weight: 600; color: var(--text-muted);">%</span>
+            </div>
+            <div class="cs-field-hint" style="margin-top: 10px;">The slice of your marketing budget spent to <strong>win brand-new customers</strong> — paid ads, cold outreach, new-lead funnels, prospecting video. The rest goes to keeping and growing the customers you already have (email, loyalty, brand, retention content).</div>
+          </div>
+          <div class="cs-allocation-split">
+            <strong id="cs-acq-dollars">$35,000</strong> to new-customer acquisition<br />
+            <strong id="cs-ret-dollars">$15,000</strong> to retention, loyalty &amp; brand
+          </div>
+        </div>
+      </div>
+
+      <!-- Return on Ad Spend -->
+      <div class="cs-group">
+        <div class="cs-group-label">Return on Ad Spend (ROAS)</div>
+        <div class="cs-grid two">
+          <div class="cs-field cs-tier-field">
+            <label class="cs-field-label">Overall ROAS</label>
+            <div class="cs-tier-row">
+              <span class="cs-tier-value" id="cs-roas-overall">10.0x</span>
+              <span class="cs-tier-badge fast" id="cs-roas-overall-badge">Blended Health Check</span>
+            </div>
+            <div class="cs-roas-note">Includes existing customer revenue that didn't require this year's spend. Use this as a sanity check — not an optimization target.</div>
+          </div>
+          <div class="cs-field cs-tier-field">
+            <label class="cs-field-label">New Customer ROAS</label>
+            <div class="cs-tier-row">
+              <span class="cs-tier-value" id="cs-roas-new">3.6x</span>
+              <span class="cs-tier-badge fast" id="cs-roas-new-badge">Healthy</span>
+            </div>
+            <div class="cs-field-hint" style="margin-top: 10px;">New customer revenue ÷ <strong>acquisition</strong> spend. The number worth optimizing.</div>
+          </div>
+        </div>
+        <div class="cs-field-hint" style="margin-top: 16px;">NC-ROAS bands: <strong>&lt;2x</strong> below breakeven · <strong>2–4x</strong> healthy · <strong>4–8x</strong> strong · <strong>8x+</strong> elite (Hormozi's 36:1 LTV ceiling lives here)</div>
+      </div>
+
+      <!-- Path to Goal -->
+      <div class="cs-group">
+        <div class="cs-group-label">Path to Goal (Current Year Targets)</div>
+        <div class="cs-field-hint" style="margin: -8px 0 16px;">Given your revenue goal, here's what each bucket has to deliver. Edit the target % on any card to model a different mix — the growth multipliers update live.</div>
+        <div class="ptg-grid">
+          <div class="ptg-card">
+            <div class="ptg-label">Existing Customers</div>
+            <div class="ptg-arrow">
+              <span class="ptg-current" id="ptg-exist-cur">$250,000</span>
+              <span class="ptg-to">→</span>
+              <span class="ptg-target" id="ptg-exist-tgt">$375,000</span>
+            </div>
+            <div class="ptg-target-row">
+              <label>Target:</label>
+              <input class="ptg-pct-input" id="ptg-exist-pct" type="text" value="50" inputmode="decimal" />
+              <label>%</label>
+            </div>
+            <span class="ptg-growth up" id="ptg-exist-growth">+50%</span>
+          </div>
+          <div class="ptg-card">
+            <div class="ptg-label">Referrals</div>
+            <div class="ptg-arrow">
+              <span class="ptg-current" id="ptg-ref-cur">$125,000</span>
+              <span class="ptg-to">→</span>
+              <span class="ptg-target" id="ptg-ref-tgt">$187,500</span>
+            </div>
+            <div class="ptg-target-row">
+              <label>Target:</label>
+              <input class="ptg-pct-input" id="ptg-ref-pct" type="text" value="25" inputmode="decimal" />
+              <label>%</label>
+            </div>
+            <span class="ptg-growth up" id="ptg-ref-growth">+50%</span>
+          </div>
+          <div class="ptg-card">
+            <div class="ptg-label">New Customers</div>
+            <div class="ptg-arrow">
+              <span class="ptg-current" id="ptg-new-cur">$125,000</span>
+              <span class="ptg-to">→</span>
+              <span class="ptg-target" id="ptg-new-tgt">$187,500</span>
+            </div>
+            <div class="ptg-target-row">
+              <label>Target:</label>
+              <input class="ptg-pct-input" id="ptg-new-pct" type="text" value="25" inputmode="decimal" />
+              <label>%</label>
+            </div>
+            <span class="ptg-growth up" id="ptg-new-growth">+50%</span>
+          </div>
+        </div>
+        <div class="cs-sum-row">
+          <span>Target mix: <span class="cs-sum-amount" id="ptg-sum-amount">100%</span> of 100%</span>
+          <div class="cs-sum-bar"><div class="cs-sum-bar-fill exact" id="ptg-sum-fill" style="width: 100%;"></div></div>
+          <span id="ptg-sum-status" style="font-weight:600; color: #0f7a4e;">On target</span>
+        </div>
+      </div>
+
+      <!-- Performance -->
+      <div class="cs-group">
+        <div class="cs-group-label">Performance</div>
+        <div class="cs-grid three">
+          <div class="cs-field cs-tier-field" style="background: #fff; border-color: #e1edf5;">
+            <label class="cs-field-label">Conversion Rate</label>
+            <div class="cs-tier-row">
+              <span class="cs-input-wrap" style="flex: 0 0 auto;">
+                <input class="cs-input" id="cs-conv" type="text" value="60" inputmode="decimal" style="max-width: 90px; text-align: left;" />
+                <span class="cs-suffix">%</span>
+              </span>
+              <span class="cs-tier-badge growth" id="cs-conv-badge">Sweet Spot</span>
+            </div>
+            <div class="cs-field-hint" style="margin-top: 10px;">% of leads that become paying customers. <strong>&gt;80%</strong> raise prices · <strong>60%</strong> sweet spot · <strong>&lt;40%</strong> drop prices or sharpen sales.</div>
+          </div>
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-ticket">Average Ticket</label>
+            <div class="cs-input-wrap">
+              <span class="cs-prefix">$</span>
+              <input class="cs-input" id="cs-ticket" type="text" value="1,250" inputmode="numeric" />
+            </div>
+            <div class="cs-field-hint">Per-transaction revenue</div>
+          </div>
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-ltv">Lifetime Value</label>
+            <div class="cs-input-wrap">
+              <span class="cs-prefix">$</span>
+              <input class="cs-input" id="cs-ltv" type="text" value="4,800" inputmode="numeric" />
+            </div>
+            <div class="cs-field-hint">Total customer value</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unit Economics -->
+      <div class="cs-group">
+        <div class="cs-group-label">Unit Economics</div>
+        <div class="cs-grid three">
+          <div class="cs-field">
+            <label class="cs-field-label" for="cs-new-count">New Customers Acquired</label>
+            <div class="cs-input-wrap">
+              <input class="cs-input" id="cs-new-count" type="text" value="100" inputmode="numeric" />
+            </div>
+            <div class="cs-field-hint">Prior year count — input</div>
+          </div>
+          <div class="cs-field cs-tier-field">
+            <label class="cs-field-label">CAC</label>
+            <div class="cs-tier-row">
+              <span class="cs-tier-value" id="cs-cac">$350</span>
+            </div>
+            <div class="cs-field-hint" style="margin-top: 10px;">Acquisition spend ÷ new customers acquired</div>
+          </div>
+          <div class="cs-field cs-tier-field">
+            <label class="cs-field-label">LTV : CAC</label>
+            <div class="cs-tier-row">
+              <span class="cs-tier-value" id="cs-ltvcac">13.7 : 1</span>
+              <span class="cs-tier-badge rapid" id="cs-ltvcac-badge">Elite</span>
+            </div>
+            <div class="cs-field-hint" style="margin-top: 10px;"><strong>3:1</strong> healthy baseline · <strong>5:1</strong> strong · <strong>10:1+</strong> elite · <strong>36:1</strong> Hormozi ceiling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= THE BIG PICTURE (split) ========= -->
+<section>
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">The Big Picture</span>
+      <h2>Where Orchard Group is today.</h2>
+    </div>
+    <div class="split">
+      <div class="split-media" style="background: linear-gradient(135deg, var(--ht-navy) 0%, var(--ht-blue) 100%); color: #fff; padding: 40px 32px; display: flex; flex-direction: column; justify-content: center;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="text-align: center;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; margin-bottom: 10px;">Combined Rating</div>
+            <div style="font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 6px;">4.85<span style="font-size: 1.2rem; opacity: 0.8;">★</span></div>
+            <div style="font-size: 0.88rem; opacity: 0.75;">across both venues</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; margin-bottom: 10px;">Google Reviews</div>
+            <div style="font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 6px;">384</div>
+            <div style="font-size: 0.88rem; opacity: 0.75;">named staff in hundreds</div>
+          </div>
+          <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; margin-bottom: 10px;">Social Reach</div>
+            <div style="font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 6px;">14.7K</div>
+            <div style="font-size: 0.88rem; opacity: 0.75;">Instagram followers combined</div>
+          </div>
+          <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px;">
+            <div style="font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; margin-bottom: 10px;">Blended ER</div>
+            <div style="font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 6px;">0.56<span style="font-size: 1.2rem; opacity: 0.8;">%</span></div>
+            <div style="font-size: 0.88rem; opacity: 0.75;">vs 1.5% vertical benchmark</div>
+          </div>
+        </div>
+      </div>
+      <div class="split-text">
+        <h2>The foundation is exceptional. Here's where we build on it.</h2>
+        <p>Both venues have earned the kind of Google reputation most operators spend years trying to manufacture — specific, warmly written, overwhelmingly five-star. <strong>That reputation is the strongest asset in the funnel.</strong> The opportunity is in making sure the marketing puts it front and center at every stage.</p>
+        <ul>
+          <li><strong>Top of funnel has headroom.</strong> Chateau 1800's 10.5K Instagram followers engage at 0.27% — there's a significant gap between the audience size and the content engaging them. The raw material is already there.</li>
+          <li><strong>Middle of funnel has quick wins.</strong> Both venues have strong Google review scores, and a few quick fixes on the inquiry path can meaningfully improve conversion.</li>
+          <li><strong>Bottom of funnel has one clear gap.</strong> Chapel by the Sea doesn't appear on The Knot. One listing, immediately correctable, opens access to an entire shortlisting audience.</li>
+        </ul>
+        <p style="color: var(--ht-navy); font-weight: 600; margin-top: 18px;">The next four pages go stage by stage and show exactly what moving each lever looks like.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= BASELINE METRICS ========= -->
+<section style="background: var(--surface-soft);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">Combined Baseline</span>
+      <h2>The Orchard Group starting line.</h2>
+      <p>Numbers across both venues, as of April 2026. Every page in this report references back to this baseline.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card light">
+        <div class="kpi-value"><span class="counter" data-target="14711">0</span></div>
+        <div class="kpi-label">Combined IG Followers</div>
+        <div class="kpi-delta down">0.56% blended engagement</div>
+      </div>
+      <div class="kpi-card light">
+        <div class="kpi-value"><span class="counter" data-target="384">0</span></div>
+        <div class="kpi-label">Combined Google Reviews</div>
+        <div class="kpi-delta">4.85★ blended rating</div>
+      </div>
+      <div class="kpi-card light">
+        <div class="kpi-value"><span class="counter" data-target="850">0</span></div>
+        <div class="kpi-label">Combined Monthly Organic Visits</div>
+        <div class="kpi-delta down">vs ~3,000 addressable</div>
+      </div>
+      <div class="kpi-card light">
+        <div class="kpi-value"><span class="counter" data-target="37">0</span><span class="suffix">%</span></div>
+        <div class="kpi-label">Addressable Traffic Captured</div>
+        <div class="kpi-delta down">Both venues combined · 63% of keyword opportunity untouched</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CURRENT STATE (filterable table) ========= -->
+<section>
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">Current State</span>
+      <h2>Channel performance at a glance.</h2>
+      <p>Where every marketing channel is today — before any of the strategy you'll see later in this deck kicks in.</p>
+    </div>
+
+    <div class="filter-block">
+      <div class="table-toolbar">
+        <input type="text" class="table-search" placeholder="Search channels..." />
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="filter-chips" data-chip-group="venue">
+            <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); align-self: center; margin-right: 4px;">Venue</span>
+            <button class="chip active" data-venue="all">All</button>
+            <button class="chip" data-venue="chateau">Chateau 1800</button>
+            <button class="chip" data-venue="chapel">Chapel by the Sea</button>
+          </div>
+          <div class="filter-chips" data-chip-group="cat">
+            <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); align-self: center; margin-right: 4px;">Channel</span>
+            <button class="chip active" data-cat="all">All</button>
+            <button class="chip" data-cat="social">Social Media</button>
+            <button class="chip" data-cat="seo">SEO</button>
+            <button class="chip" data-cat="reviews">Google Reviews</button>
+            <button class="chip" data-cat="listings">WeddingWire / The Knot</button>
+          </div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Venue</th>
+              <th>Volume</th>
+              <th>Performance</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-filter="chateau" data-cat="social"><td>Instagram</td><td><span class="pill pill-blue">Chateau 1800</span></td><td>10,543 followers</td><td><span class="pill pill-red">0.27% ER</span></td><td>~18% of vertical benchmark · <strong>9 content type gaps</strong></td></tr>
+            <tr data-filter="chapel" data-cat="social"><td>Instagram</td><td><span class="pill pill-blue">Chapel by the Sea</span></td><td>4,168 followers</td><td><span class="pill pill-gold">1.31% ER</span></td><td>Low reel volume · no verification · no story strategy</td></tr>
+            <tr data-filter="chateau" data-cat="seo"><td>Google Organic (SEO)</td><td><span class="pill pill-blue">Chateau 1800</span></td><td>446 visits/mo</td><td><span class="pill pill-gold">Stagnant</span></td><td>DR 32 · <strong>16 commercial keywords at positions 6–10</strong></td></tr>
+            <tr data-filter="chapel" data-cat="seo"><td>Google Organic (SEO)</td><td><span class="pill pill-blue">Chapel by the Sea</span></td><td>404 visits/mo</td><td><span class="pill pill-red">27% of addressable</span></td><td>DR 55 · "all inclusive weddings georgia" <strong>stuck at #50</strong></td></tr>
+            <tr data-filter="chateau" data-cat="reviews"><td>Google Reviews</td><td><span class="pill pill-blue">Chateau 1800</span></td><td>211 reviews</td><td><span class="pill pill-green">4.9★</span></td><td>Owner-response rate strong · one review flags ops miscommunication</td></tr>
+            <tr data-filter="chapel" data-cat="reviews"><td>Google Reviews</td><td><span class="pill pill-blue">Chapel by the Sea</span></td><td>173 reviews</td><td><span class="pill pill-green">4.8★</span></td><td>Uniformly glowing · team members named by couples</td></tr>
+            <tr data-filter="chateau" data-cat="listings"><td>WeddingWire</td><td><span class="pill pill-blue">Chateau 1800</span></td><td>Listed</td><td><span class="pill pill-green">Active</span></td><td>Paid listing live</td></tr>
+            <tr data-filter="chapel" data-cat="listings"><td>WeddingWire</td><td><span class="pill pill-blue">Chapel by the Sea</span></td><td>Listed</td><td><span class="pill pill-green">Active</span></td><td>Paid listing live</td></tr>
+            <tr data-filter="chateau" data-cat="listings"><td>The Knot</td><td><span class="pill pill-blue">Chateau 1800</span></td><td>Listed</td><td><span class="pill pill-green">Active</span></td><td>Paid listing live</td></tr>
+            <tr data-filter="chapel" data-cat="listings"><td>The Knot</td><td><span class="pill pill-blue">Chapel by the Sea</span></td><td>Not detected</td><td><span class="pill pill-red">Gap</span></td><td><strong>Venue appears unlisted</strong> — missing an entire shortlisting audience</td></tr>
+            <tr data-filter="chateau" data-cat="other"><td>Website Inquiry Form</td><td><span class="pill pill-blue">Chateau 1800</span></td><td>—</td><td><span class="pill pill-red">Friction</span></td><td>48-hr response-time displayed on site</td></tr>
+            <tr data-filter="chapel" data-cat="other"><td>Website Inquiry Form</td><td><span class="pill pill-blue">Chapel by the Sea</span></td><td>—</td><td><span class="pill pill-red">Friction</span></td><td><strong>Blog drives 13.4% of traffic with zero booking CTAs</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= KEY INSIGHTS ========= -->
+<section style="background: var(--surface-soft);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-label">Key Insights</span>
+      <h2>Three themes shaping the strategy.</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">▲</div>
+        <h3>Reputation &gt; Reach</h3>
+        <p>384 combined Google reviews at 4.85★ is doing more work than any channel should be asked to do alone. The venues are winning on proof — and starving on awareness.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◆</div>
+        <h3>Two Audiences, One Voice Missing</h3>
+        <p>Chateau 1800 targets full-service estate weddings in Effingham/Savannah. Chapel by the Sea targets beachside destination weddings. The content strategy can't treat them as one brand — but the right strategy serves both.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: var(--ht-navy); color: #fff;">●</div>
+        <h3>Bottom of the Funnel Is Leaking</h3>
+        <p>48-hour response-time on display. Chapel missing from The Knot. These are low-effort, high-leverage fixes sitting in plain sight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PAGE NAV ========= -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="page-nav">
+      <a href="index.html">
+        <span class="pn-label">← Previous</span>
+        <span class="pn-title">Introduction</span>
+      </a>
+      <a href="top-of-funnel.html" class="next">
+        <span class="pn-label">Next →</span>
+        <span class="pn-title">Top of Funnel</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer id="contact">
+  <div class="footer-brand">
+    <img src="/Users/chantzyager/Library/CloudStorage/GoogleDrive-chantz@hightidemarketing.com/.shortcut-targets-by-id/1ZST_lLI4pUxDsP56QU2gFwNVhmOb4gxc/High Tide Marketing/HTM-2.svg" class="ht-logo" alt="High Tide Marketing">
+    <span>HIGH TIDE MARKETING</span>
+  </div>
+  <div>© 2026 High Tide Marketing · Prepared by Chantz Yager</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.dataset.tab;
+      const tabs = btn.closest('.tabs');
+      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      tabs.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      tabs.querySelector('#' + tabId).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.acc-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const body = item.querySelector('.acc-body');
+      const open = item.classList.contains('open');
+      if (open) { body.style.maxHeight = null; item.classList.remove('open'); }
+      else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
+    });
+  });
+  document.querySelectorAll('.acc-item.open .acc-body').forEach(body => {
+    body.style.maxHeight = body.scrollHeight + 'px';
+  });
+  const animateCounter = (el) => {
+    const target = parseFloat(el.dataset.target);
+    const decimals = (el.dataset.target.split('.')[1] || '').length;
+    const duration = 1400; const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = decimals ? value.toFixed(decimals) : Math.floor(value).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = decimals ? target.toFixed(decimals) : Math.floor(target).toLocaleString();
+    };
+    requestAnimationFrame(tick);
+  };
+  // Observe parent card so inline <span> intersection fires reliably
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.counter').forEach(animateCounter);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.kpi-card').forEach(card => counterObs.observe(card));
+  // Fallback: if already in viewport on load, fire after short delay
+  setTimeout(() => {
+    document.querySelectorAll('.counter').forEach(el => {
+      if (el.textContent === '0') animateCounter(el);
+    });
+  }, 400);
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar').forEach(b => { b.style.height = b.dataset.h + '%'; });
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.bar-chart').forEach(c => barObs.observe(c));
+  (function clientSnapshot() {
+    const snap = document.querySelector('.client-snapshot');
+    if (!snap || !snap.querySelector('#cs-revenue-2025')) return;
+    const parseNum = (str) => parseFloat(String(str).replace(/[^\d.-]/g, '')) || 0;
+    const fmt = (n) => Math.round(n).toLocaleString('en-US');
+
+    const rev = snap.querySelector('#cs-revenue-2025');
+    const goal = snap.querySelector('#cs-revenue-goal');
+    const annual = snap.querySelector('#cs-annual-spend');
+    const monthly = snap.querySelector('#cs-monthly-spend');
+    const tierPct = snap.querySelector('#cs-tier-pct');
+    const tierBadge = snap.querySelector('#cs-tier-badge');
+
+    let linking = false;
+
+    const tierNote = snap.querySelector('#cs-tier-note');
+
+    function update() {
+      const r = parseNum(rev.value);
+      const a = parseNum(annual.value);
+      const pct = r > 0 ? (a / r) * 100 : 0;
+      tierPct.textContent = pct.toFixed(pct >= 10 ? 1 : 2).replace(/\.0+$/, '') + '%';
+
+      // Contextual thresholds — shift down if existing customer % is high
+      const existEl = snap.querySelector('#cs-rev-existing');
+      const existPct = existEl ? parseNum(existEl.value) : 50;
+      const mult = existPct > 50 ? Math.max(0.55, 1 - (existPct - 50) / 100) : 1;
+      const t1 = 5 * mult, t2 = 7 * mult, t3 = 10 * mult;
+
+      let tier, cls;
+      if (pct >= t3)      { tier = 'Rapid Growth'; cls = 'rapid'; }
+      else if (pct >= t2) { tier = 'Fast Growth';  cls = 'fast'; }
+      else if (pct >= t1) { tier = 'Growth';       cls = 'growth'; }
+      else                { tier = 'Maintain';     cls = 'maintain'; }
+      tierBadge.textContent = tier;
+      tierBadge.className = 'cs-tier-badge ' + cls;
+
+      if (tierNote) {
+        const fmt1 = (n) => n.toFixed(1).replace(/\.0$/, '');
+        if (existPct > 60) {
+          tierNote.innerHTML = `Adjusted for ${existPct.toFixed(0)}% existing-customer base · &lt;${fmt1(t1)}% Maintain · ${fmt1(t1)}–${fmt1(t2)}% Growth · ${fmt1(t2)}–${fmt1(t3)}% Fast · ${fmt1(t3)}%+ Rapid`;
+        } else {
+          tierNote.textContent = '<5% Maintain · 5–7% Growth · 7–10% Fast · 10%+ Rapid';
+        }
+      }
+    }
+
+    annual.addEventListener('input', () => {
+      if (linking) return;
+      linking = true;
+      const v = parseNum(annual.value);
+      if (v > 0) monthly.value = fmt(v / 12);
+      linking = false;
+      update();
+    });
+    monthly.addEventListener('input', () => {
+      if (linking) return;
+      linking = true;
+      const v = parseNum(monthly.value);
+      if (v > 0) annual.value = fmt(v * 12);
+      linking = false;
+      update();
+    });
+    rev.addEventListener('input', update);
+
+    [rev, goal, annual, monthly].forEach(el => {
+      el.addEventListener('blur', () => {
+        const n = parseNum(el.value);
+        if (n > 0) el.value = fmt(n);
+      });
+    });
+
+    update();
+
+    // Conversion rate tier
+    const conv = snap.querySelector('#cs-conv');
+    const convBadge = snap.querySelector('#cs-conv-badge');
+    if (conv && convBadge) {
+      const updateConv = () => {
+        const v = parseNum(conv.value);
+        let label, cls;
+        if (v >= 80)      { label = 'Raise Prices';   cls = 'rapid'; }
+        else if (v >= 50) { label = 'Sweet Spot';     cls = 'growth'; }
+        else if (v >= 40) { label = 'Healthy Range';  cls = 'fast'; }
+        else              { label = 'Sales Focus';    cls = 'warn'; }
+        convBadge.textContent = label;
+        convBadge.className = 'cs-tier-badge ' + cls;
+      };
+      conv.addEventListener('input', updateConv);
+      updateConv();
+    }
+
+    // Growth % badge on current year goal
+    const growthBadge = snap.querySelector('#cs-growth-badge');
+    function updateGrowth() {
+      const prior = parseNum(rev.value);
+      const target = parseNum(goal.value);
+      if (prior <= 0) { growthBadge.textContent = '—'; return; }
+      const pct = ((target - prior) / prior) * 100;
+      const sign = pct >= 0 ? '+' : '';
+      const digits = Math.abs(pct) >= 10 ? 0 : 1;
+      growthBadge.textContent = sign + pct.toFixed(digits) + '% Growth';
+      let cls;
+      if (pct >= 25)       cls = 'rapid';
+      else if (pct >= 10)  cls = 'growth';
+      else if (pct >= 0)   cls = 'fast';
+      else                 cls = 'warn';
+      growthBadge.className = 'cs-tier-badge ' + cls;
+    }
+    goal.addEventListener('input', updateGrowth);
+    rev.addEventListener('input', updateGrowth);
+    updateGrowth();
+
+    // Revenue breakdown — percentages with auto-calculated $ hints
+    const rExist = snap.querySelector('#cs-rev-existing');
+    const rRef = snap.querySelector('#cs-rev-referral');
+    const rNew = snap.querySelector('#cs-rev-new');
+    const rExistD = snap.querySelector('#cs-rev-existing-dollars');
+    const rRefD = snap.querySelector('#cs-rev-referral-dollars');
+    const rNewD = snap.querySelector('#cs-rev-new-dollars');
+    const sumAmt = snap.querySelector('#cs-sum-amount');
+    const sumTgt = snap.querySelector('#cs-sum-target');
+    const sumBar = snap.querySelector('#cs-sum-bar-fill');
+    const sumStatus = snap.querySelector('#cs-sum-status');
+
+    function updateBreakdown() {
+      const prior = parseNum(rev.value);
+      const eP = parseNum(rExist.value);
+      const rP = parseNum(rRef.value);
+      const nP = parseNum(rNew.value);
+      const total = eP + rP + nP;
+
+      rExistD.textContent = '$' + fmt(prior * eP / 100);
+      rRefD.textContent   = '$' + fmt(prior * rP / 100);
+      rNewD.textContent   = '$' + fmt(prior * nP / 100);
+
+      sumAmt.textContent = total.toFixed(total % 1 === 0 ? 0 : 1) + '%';
+      sumTgt.textContent = '100%';
+      sumBar.style.width = Math.min(total, 100) + '%';
+      sumBar.classList.remove('over', 'exact');
+      if (Math.abs(total - 100) < 0.1) {
+        sumBar.classList.add('exact');
+        sumStatus.textContent = 'Totals 100%';
+        sumStatus.style.color = '#0f7a4e';
+      } else if (total > 100) {
+        sumBar.classList.add('over');
+        sumStatus.textContent = (total - 100).toFixed(0) + '% over';
+        sumStatus.style.color = '#b4312a';
+      } else {
+        sumStatus.textContent = (100 - total).toFixed(0) + '% under';
+        sumStatus.style.color = 'var(--text-muted)';
+      }
+
+      updateRoas();
+    }
+
+    [rExist, rRef, rNew].forEach(el => {
+      el.addEventListener('input', () => {
+        updateBreakdown();
+        update();
+        updatePTG();
+      });
+    });
+    rev.addEventListener('input', updateBreakdown);
+
+    // Acquisition / retention allocation
+    const acqShare = snap.querySelector('#cs-acq-share');
+    const acqDollars = snap.querySelector('#cs-acq-dollars');
+    const retDollars = snap.querySelector('#cs-ret-dollars');
+
+    function updateAllocation() {
+      const total = parseNum(annual.value);
+      const share = Math.min(100, Math.max(0, parseNum(acqShare.value)));
+      const acq = total * share / 100;
+      const ret = total - acq;
+      acqDollars.textContent = '$' + fmt(acq);
+      retDollars.textContent = '$' + fmt(ret);
+      updateRoas();
+      updateUnitEcon();
+    }
+    acqShare.addEventListener('input', updateAllocation);
+    annual.addEventListener('input', updateAllocation);
+
+    // ROAS — Overall (blended) + New Customer (uses acquisition spend)
+    const roasOverall = snap.querySelector('#cs-roas-overall');
+    const roasNew = snap.querySelector('#cs-roas-new');
+    const roasNewBadge = snap.querySelector('#cs-roas-new-badge');
+
+    function tierizeRoas(v) {
+      if (v >= 8) return ['Elite',           'rapid'];
+      if (v >= 4) return ['Strong',          'growth'];
+      if (v >= 2) return ['Healthy',         'fast'];
+      if (v > 0)  return ['Below Breakeven', 'warn'];
+      return ['—', 'maintain'];
+    }
+
+    function updateRoas() {
+      const prior = parseNum(rev.value);
+      const totalSpend = parseNum(annual.value);
+      const share = Math.min(100, Math.max(0, parseNum(acqShare.value)));
+      const acqSpend = totalSpend * share / 100;
+      const newPct = parseNum(rNew.value);
+      const newRev = prior * newPct / 100;
+
+      const overall = totalSpend > 0 ? prior / totalSpend : 0;
+      const newR = acqSpend > 0 ? newRev / acqSpend : 0;
+
+      roasOverall.textContent = overall.toFixed(1) + 'x';
+      roasNew.textContent = newR.toFixed(1) + 'x';
+
+      const [nLabel, nCls] = tierizeRoas(newR);
+      roasNewBadge.textContent = nLabel;
+      roasNewBadge.className = 'cs-tier-badge ' + nCls;
+    }
+    annual.addEventListener('input', updateRoas);
+
+    // Path to Goal
+    const ptgElems = {
+      exist: {
+        cur: snap.querySelector('#ptg-exist-cur'),
+        tgt: snap.querySelector('#ptg-exist-tgt'),
+        pct: snap.querySelector('#ptg-exist-pct'),
+        growth: snap.querySelector('#ptg-exist-growth'),
+        priorPct: () => parseNum(rExist.value),
+      },
+      ref: {
+        cur: snap.querySelector('#ptg-ref-cur'),
+        tgt: snap.querySelector('#ptg-ref-tgt'),
+        pct: snap.querySelector('#ptg-ref-pct'),
+        growth: snap.querySelector('#ptg-ref-growth'),
+        priorPct: () => parseNum(rRef.value),
+      },
+      new: {
+        cur: snap.querySelector('#ptg-new-cur'),
+        tgt: snap.querySelector('#ptg-new-tgt'),
+        pct: snap.querySelector('#ptg-new-pct'),
+        growth: snap.querySelector('#ptg-new-growth'),
+        priorPct: () => parseNum(rNew.value),
+      },
+    };
+    const ptgSumAmt = snap.querySelector('#ptg-sum-amount');
+    const ptgSumFill = snap.querySelector('#ptg-sum-fill');
+    const ptgSumStatus = snap.querySelector('#ptg-sum-status');
+
+    function classifyGrowth(g) {
+      if (g >= 100)  return 'huge';
+      if (g >  3)    return 'up';
+      if (g >= -3)   return 'flat';
+      return 'down';
+    }
+
+    function updatePTG() {
+      const prior = parseNum(rev.value);
+      const goalV = parseNum(goal.value);
+      let totalPct = 0;
+
+      Object.keys(ptgElems).forEach(k => {
+        const e = ptgElems[k];
+        const priorDollars = prior * e.priorPct() / 100;
+        const tgtPct = parseNum(e.pct.value);
+        totalPct += tgtPct;
+        const tgtDollars = goalV * tgtPct / 100;
+        e.cur.textContent = '$' + fmt(priorDollars);
+        e.tgt.textContent = '$' + fmt(tgtDollars);
+
+        const growth = priorDollars > 0 ? ((tgtDollars - priorDollars) / priorDollars) * 100 : 0;
+        const sign = growth >= 0 ? '+' : '';
+        const digits = Math.abs(growth) >= 100 ? 0 : (Math.abs(growth) >= 10 ? 0 : 1);
+        e.growth.textContent = sign + growth.toFixed(digits) + '%';
+        e.growth.className = 'ptg-growth ' + classifyGrowth(growth);
+      });
+
+      ptgSumAmt.textContent = totalPct.toFixed(totalPct % 1 === 0 ? 0 : 1) + '%';
+      ptgSumFill.style.width = Math.min(totalPct, 100) + '%';
+      ptgSumFill.classList.remove('over', 'exact');
+      if (Math.abs(totalPct - 100) < 0.1) {
+        ptgSumFill.classList.add('exact');
+        ptgSumStatus.textContent = 'On target';
+        ptgSumStatus.style.color = '#0f7a4e';
+      } else if (totalPct > 100) {
+        ptgSumFill.classList.add('over');
+        ptgSumStatus.textContent = (totalPct - 100).toFixed(0) + '% over';
+        ptgSumStatus.style.color = '#b4312a';
+      } else {
+        ptgSumStatus.textContent = (100 - totalPct).toFixed(0) + '% under';
+        ptgSumStatus.style.color = 'var(--text-muted)';
+      }
+    }
+    Object.values(ptgElems).forEach(e => e.pct.addEventListener('input', updatePTG));
+    goal.addEventListener('input', updatePTG);
+    rev.addEventListener('input', updatePTG);
+
+    // Unit Economics — CAC, LTV:CAC
+    const newCount = snap.querySelector('#cs-new-count');
+    const cacEl = snap.querySelector('#cs-cac');
+    const ltv = snap.querySelector('#cs-ltv');
+    const ltvcacEl = snap.querySelector('#cs-ltvcac');
+    const ltvcacBadge = snap.querySelector('#cs-ltvcac-badge');
+
+    function tierizeLtvCac(v) {
+      if (v >= 10)  return ['Elite',           'rapid'];
+      if (v >= 5)   return ['Strong',          'growth'];
+      if (v >= 3)   return ['Healthy',         'fast'];
+      if (v >= 1)   return ['Marginal',        'maintain'];
+      if (v > 0)    return ['Losing Money',    'warn'];
+      return ['—', 'maintain'];
+    }
+
+    function updateUnitEcon() {
+      const totalSpend = parseNum(annual.value);
+      const share = Math.min(100, Math.max(0, parseNum(acqShare.value)));
+      const acqSpend = totalSpend * share / 100;
+      const count = parseNum(newCount.value);
+      const ltvV = parseNum(ltv.value);
+
+      const cac = count > 0 ? acqSpend / count : 0;
+      cacEl.textContent = '$' + fmt(cac);
+
+      const ratio = cac > 0 ? ltvV / cac : 0;
+      ltvcacEl.textContent = ratio.toFixed(1) + ' : 1';
+      const [lLabel, lCls] = tierizeLtvCac(ratio);
+      ltvcacBadge.textContent = lLabel;
+      ltvcacBadge.className = 'cs-tier-badge ' + lCls;
+    }
+    newCount.addEventListener('input', updateUnitEcon);
+    ltv.addEventListener('input', updateUnitEcon);
+    annual.addEventListener('input', updateUnitEcon);
+
+    // Reformat numeric fields on blur
+    [newCount].forEach(el => {
+      el.addEventListener('blur', () => {
+        const n = parseNum(el.value);
+        if (n > 0) el.value = fmt(n);
+      });
+    });
+
+    updateAllocation();
+    updatePTG();
+    updateUnitEcon();
+    updateBreakdown();
+  })();
+
+    document.querySelectorAll('.filter-block').forEach(block => {
+    const search = block.querySelector('.table-search');
+    const rows = Array.from(block.querySelectorAll('tbody tr'));
+    let activeVenue = 'all';
+    let activeCat = 'all';
+
+    function apply() {
+      const q = search ? search.value.toLowerCase().trim() : '';
+      rows.forEach(r => {
+        const venueVal = (r.getAttribute('data-filter') || '').toLowerCase();
+        const catVal   = (r.getAttribute('data-cat')    || '').toLowerCase();
+        const matchQ = !q || r.textContent.toLowerCase().includes(q);
+        const matchV = activeVenue === 'all' || venueVal === activeVenue;
+        const matchC = activeCat  === 'all' || catVal   === activeCat;
+        r.style.display = (matchQ && matchV && matchC) ? '' : 'none';
+      });
+    }
+
+    if (search) search.addEventListener('input', apply);
+
+    block.querySelectorAll('button[data-venue]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        block.querySelectorAll('button[data-venue]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeVenue = btn.getAttribute('data-venue');
+        apply();
+      });
+    });
+
+    block.querySelectorAll('button[data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        block.querySelectorAll('button[data-cat]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        apply();
+      });
+    });
+  });
+
+  (function businessMath() {
+    const parseNum = s => parseFloat(String(s).replace(/[^\d.-]/g, '')) || 0;
+    const fmt = n => Math.round(n).toLocaleString('en-US');
+    const pct = (n, d) => (n * 100).toFixed(d !== undefined ? d : 1) + '%';
+
+    function roasBand(v) {
+      if (v <= 0) return ['—', ''];
+      if (v >= 8) return ['Elite', 'rapid'];
+      if (v >= 4) return ['Strong', 'growth'];
+      if (v >= 2) return ['Healthy', 'fast'];
+      return ['Below breakeven', 'warn'];
+    }
+
+    function showCallout(id, text) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (text) { el.textContent = text; el.style.display = ''; }
+      else { el.style.display = 'none'; }
+    }
+
+    function calc() {
+      const g = id => parseNum(document.getElementById(id)?.value);
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+
+      const chRev   = g('snap-ch-rev25');
+      const chGoal  = g('snap-ch-goal26');
+      const chSpend = g('snap-ch-spend');
+      const chPkg   = g('snap-ch-pkg');
+      const cpRev   = g('snap-cp-rev25');
+      const cpGoal  = g('snap-cp-goal26');
+      const cpSpend = g('snap-cp-spend');
+      const cpPkg   = g('snap-cp-pkg');
+
+      // ── Per-venue inline callouts ──────────────────────────────────────
+      // Goal % increase callouts
+      if (chRev > 0 && chGoal > 0) {
+        const chGrowth = (chGoal - chRev) / chRev * 100;
+        showCallout('bm-ch-goal-callout', (chGrowth >= 0 ? '+' : '') + chGrowth.toFixed(1) + '% vs 2025');
+      } else { showCallout('bm-ch-goal-callout', null); }
+
+      if (cpRev > 0 && cpGoal > 0) {
+        const cpGrowth = (cpGoal - cpRev) / cpRev * 100;
+        showCallout('bm-cp-goal-callout', (cpGrowth >= 0 ? '+' : '') + cpGrowth.toFixed(1) + '% vs 2025');
+      } else { showCallout('bm-cp-goal-callout', null); }
+
+      // Spend % callouts
+      if (chSpend > 0 && (chRev > 0 || chGoal > 0)) {
+        const parts = [];
+        if (chRev  > 0) parts.push(pct(chSpend / chRev)  + ' of 2025 revenue');
+        if (chGoal > 0) parts.push(pct(chSpend / chGoal) + ' of 2026 goal');
+        showCallout('bm-ch-spend-callout', parts.join('  ·  '));
+      } else { showCallout('bm-ch-spend-callout', null); }
+
+      if (cpSpend > 0 && (cpRev > 0 || cpGoal > 0)) {
+        const parts = [];
+        if (cpRev  > 0) parts.push(pct(cpSpend / cpRev)  + ' of 2025 revenue');
+        if (cpGoal > 0) parts.push(pct(cpSpend / cpGoal) + ' of 2026 goal');
+        showCallout('bm-cp-spend-callout', parts.join('  ·  '));
+      } else { showCallout('bm-cp-spend-callout', null); }
+
+      // ── Per-venue ROAS ─────────────────────────────────────────────────
+      const chRoasV = chSpend > 0 && chRev > 0 ? chRev / chSpend : 0;
+      const cpRoasV = cpSpend > 0 && cpRev > 0 ? cpRev / cpSpend : 0;
+
+      // HTML already has a separate "x" span — output number only
+      set('bm-ch-roas', chRoasV > 0 ? chRoasV.toFixed(1) : '—');
+      set('bm-cp-roas', cpRoasV > 0 ? cpRoasV.toFixed(1) : '—');
+
+      const chBadge = document.getElementById('bm-ch-roas-badge');
+      const cpBadge = document.getElementById('bm-cp-roas-badge');
+      if (chBadge) { const [l, c] = roasBand(chRoasV); chBadge.textContent = l; chBadge.className = 'cs-tier-badge' + (c ? ' ' + c : ''); }
+      if (cpBadge) { const [l, c] = roasBand(cpRoasV); cpBadge.textContent = l; cpBadge.className = 'cs-tier-badge' + (c ? ' ' + c : ''); }
+
+      set('bm-ch-roas-note', chRoasV > 0 ? 'Revenue ÷ Spend' : 'Enter revenue & spend above');
+      set('bm-cp-roas-note', cpRoasV > 0 ? 'Revenue ÷ Spend' : 'Enter revenue & spend above');
+
+      // ── Combined summary ───────────────────────────────────────────────
+      const combRev  = chRev  + cpRev;
+      const combGoal = chGoal + cpGoal;
+      const gap      = combGoal - combRev;
+      const growth   = combRev > 0 && combGoal > 0 ? (gap / combRev) * 100 : 0;
+
+      set('bm-combined-rev',  combRev  > 0 ? '$' + fmt(combRev)  : '—');
+      set('bm-combined-goal', combGoal > 0 ? '$' + fmt(combGoal) : '—');
+      set('bm-gap',           combGoal > 0 ? (gap >= 0 ? '$' + fmt(gap) : '-$' + fmt(-gap)) : '—');
+      set('bm-growth',        combRev  > 0 && combGoal > 0 ? (growth >= 0 ? '+' : '') + growth.toFixed(1) + '%' : '—');
+
+      // ── Combined spend % ───────────────────────────────────────────────
+      const totalSpend = chSpend + cpSpend;
+      set('bm-spend-rev-pct',  combRev  > 0 && totalSpend > 0 ? pct(totalSpend / combRev)  : '—');
+      set('bm-spend-goal-pct', combGoal > 0 && totalSpend > 0 ? pct(totalSpend / combGoal) : '—');
+
+      // ── Weddings needed ────────────────────────────────────────────────
+      const pkgCount = (chPkg > 0 ? 1 : 0) + (cpPkg > 0 ? 1 : 0);
+      const avgPkg   = pkgCount > 0 ? (chPkg + cpPkg) / pkgCount : 0;
+      const weddings = avgPkg > 0 && gap > 0 ? Math.ceil(gap / avgPkg) : 0;
+      set('bm-weddings-needed', weddings > 0 ? weddings.toLocaleString() : '—');
+      set('bm-weddings-note',   avgPkg   > 0 ? 'based on $' + fmt(avgPkg) + ' avg package value' : 'based on avg package value');
+
+      // ── Spend summary ──────────────────────────────────────────────────
+      set('bm-total-spend', totalSpend > 0 ? '$' + fmt(totalSpend)       : '—');
+      set('bm-spend-mo',    totalSpend > 0 ? '$' + fmt(totalSpend / 12) + ' / mo combined' : '— / mo combined');
+
+      // ── Recommended spend: 10% of combined goal ────────────────────────
+      set('bm-rec-spend', combGoal > 0 ? '$' + fmt(combGoal * 0.10) : '—');
+    }
+
+    document.querySelectorAll('.snap-input').forEach(el => {
+      el.addEventListener('input', calc);
+      el.addEventListener('blur', () => {
+        const n = parseNum(el.value);
+        if (n > 0) el.value = n.toLocaleString('en-US');
+      });
+    });
+
+    calc();
+  })();
+</script>
+</body>
+</html>

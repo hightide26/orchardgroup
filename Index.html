@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orchard Group × High Tide Marketing — Marketing Consultation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ht-sky: #5bc4e8;
+    --ht-sky-hover: #3fb0d8;
+    --ht-navy: #0d3b52;
+    --ht-navy-deep: #071f2b;
+    --ht-blue: #1a8ab5;
+    --ht-tint-1: #e8f6fd;
+    --ht-tint-2: #d6f4fc;
+    --ht-tint-3: #b8e8f7;
+    --ht-gold: #F0C040;
+    --bg: #ffffff;
+    --surface-soft: #f8fafc;
+    --surface-card: var(--ht-tint-1);
+    --border: #e5ecf1;
+    --text-primary: #0d3b52;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-soft: 0 1px 2px rgba(13, 59, 82, 0.04), 0 2px 8px rgba(13, 59, 82, 0.04);
+    --max-width: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: var(--ht-navy-deep);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; }
+  a:hover { text-decoration: none; }
+
+  /* ========= NAV ========= */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(7, 31, 43, 0.95);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(91, 196, 232, 0.1);
+  }
+  .nav-inner {
+    max-width: var(--max-width); margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    color: inherit; text-decoration: none;
+  }
+  .nav-logo:hover { text-decoration: none; }
+  .nav-logo .ht-logo { height: 36px; width: auto; flex-shrink: 0; }
+  .nav-logo-text {
+    font-weight: 800; font-size: 0.95rem;
+    letter-spacing: 0.08em; color: #fff; line-height: 1;
+  }
+  .nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    display: inline-block; padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    color: rgba(255, 255, 255, 0.65); font-weight: 500; font-size: 0.95rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .nav-links a:hover { background: rgba(91, 196, 232, 0.1); color: #fff; text-decoration: none; }
+  .nav-cta {
+    display: inline-block;
+    background: var(--ht-sky); color: var(--ht-navy-deep);
+    font-weight: 600; padding: 10px 18px;
+    border-radius: var(--radius-sm); font-size: 0.95rem;
+    transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: var(--ht-sky-hover); text-decoration: none; }
+  @media (max-width: 920px) { .nav-links { display: none; } }
+
+  /* ========= HERO ========= */
+  .hero {
+    min-height: calc(100vh - 68px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 28px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(91, 196, 232, 0.12) 0%, transparent 60%),
+      var(--ht-navy-deep);
+  }
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ht-sky);
+    background: transparent;
+    border: 1px solid rgba(91, 196, 232, 0.3);
+    padding: 7px 16px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  /* H1 */
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 18px;
+  }
+
+  /* Sub-label */
+  .hero-sublabel {
+    font-size: 1.1rem;
+    color: rgba(91, 196, 232, 0.7);
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Lead paragraph */
+  .hero-lead {
+    max-width: 580px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 auto 0;
+  }
+
+  /* Divider */
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(91, 196, 232, 0.2);
+    margin: 32px auto;
+  }
+
+  /* ========= VENUE CARDS ========= */
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  @media (max-width: 680px) {
+    .venue-grid { grid-template-columns: 1fr; }
+  }
+
+  .venue-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(91, 196, 232, 0.15);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: left;
+  }
+
+  .venue-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .venue-location {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 24px;
+    line-height: 1.4;
+  }
+  .venue-location .loc-symbol {
+    color: rgba(91, 196, 232, 0.5);
+    margin-right: 4px;
+  }
+
+  /* 2x2 stat grid */
+  .venue-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stat-item {}
+  .stat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .stat-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .venue-tagline {
+    font-style: italic;
+    color: rgba(91, 196, 232, 0.55);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(91, 196, 232, 0.1);
+  }
+
+  /* ========= CTA ROW ========= */
+  .cta-row {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn-enter {
+    display: inline-block;
+    background: var(--ht-sky);
+    color: #071f2b;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-enter:hover {
+    background: var(--ht-sky-hover);
+    transform: translateY(-1px);
+  }
+
+  .cta-meta {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.02em;
+  }
+
+  /* ========= FOOTER ========= */
+  .cover-footer {
+    padding: 28px 0 32px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.88rem;
+    border: none;
+    background: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========= NAV ========= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">
+      <img src="/Users/chantzyager/Library/CloudStorage/GoogleDrive-chantz@hightidemarketing.com/.shortcut-targets-by-id/1ZST_lLI4pUxDsP56QU2gFwNVhmOb4gxc/High Tide Marketing/High Tide Logo/SVG/High Tide Marketing2_4.svg" class="ht-logo" alt="High Tide Marketing">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Introduction</a></li>
+      <li><a href="what-we-know.html">What We Know</a></li>
+      <li><a href="top-of-funnel.html">Top of Funnel</a></li>
+      <li><a href="middle-funnel.html">Middle Funnel</a></li>
+      <li><a href="bottom-funnel.html">Bottom Funnel</a></li>
+      <li><a href="next-steps.html">Next Steps</a></li>
+      <li><a href="competitor.html">Competitors</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========= HERO ========= -->
+<main class="hero">
+  <div class="hero-inner">
+
+    <span class="hero-badge">High Tide Marketing &times; Orchard Group</span>
+
+    <h1>Marketing Consultation</h1>
+
+    <p class="hero-sublabel">Chateau 1800 &amp; The Chapel by the Sea — April 2026</p>
+
+    <p class="hero-lead">A complete look at where both venues stand today across social media, SEO, paid ads, and reputation — and a clear picture of what to do next.</p>
+
+    <div class="hero-divider"></div>
+
+    <!-- Venue Cards -->
+    <div class="venue-grid">
+
+      <!-- Chateau 1800 -->
+      <div class="venue-card">
+        <h3>Chateau 1800</h3>
+        <p class="venue-location"><span class="loc-symbol">&#9678;</span>Rincon, GA (near Savannah) &mdash; 56-acre lakefront estate</p>
+        <div class="venue-stats">
+          <div class="stat-item">
+            <span class="stat-label">Starting Price</span>
+            <span class="stat-value">$4,850</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Capacity</span>
+            <span class="stat-value">300+ guests</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Knot Reviews</span>
+            <span class="stat-value">88 reviews &middot; 4.9&#9733;</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">IG Followers</span>
+            <span class="stat-value">10,543</span>
+          </div>
+        </div>
+        <p class="venue-tagline">French-country estate with indoor/outdoor spaces and on-site accommodations.</p>
+      </div>
+
+      <!-- Chapel by the Sea -->
+      <div class="venue-card">
+        <h3>The Chapel by the Sea</h3>
+        <p class="venue-location"><span class="loc-symbol">&#9678;</span>Tybee Island, GA &mdash; beachfront chapel</p>
+        <div class="venue-stats">
+          <div class="stat-item">
+            <span class="stat-label">Starting Price</span>
+            <span class="stat-value">$6,250</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Capacity</span>
+            <span class="stat-value">Up to 220 guests</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Knot Reviews</span>
+            <span class="stat-value">150 reviews &middot; 4.9&#9733; <span style="font-size:0.75rem; color: rgba(91,196,232,0.6); font-weight:500;">(Hall of Fame)</span></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">IG Followers</span>
+            <span class="stat-value">1,847</span>
+          </div>
+        </div>
+        <p class="venue-tagline">Historic coastal chapel with a grand ballroom, 20 minutes from downtown Savannah.</p>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-row">
+      <a href="index.html" class="btn-enter">Enter Presentation &rarr;</a>
+      <span class="cta-meta">7 sections &middot; Competitor analysis &middot; SEO data &middot; Action plan</span>
+    </div>
+
+  </div>
+</main>
+
+<!-- ========= FOOTER ========= -->
+<footer class="cover-footer">
+  High Tide Marketing &middot; April 2026 &middot; Prepared for Orchard Group
+</footer>
+
+</body>
+</html>
